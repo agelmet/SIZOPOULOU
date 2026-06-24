@@ -129,9 +129,9 @@
   .hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:34px}
   .hero-tags span{font-size:.74rem;letter-spacing:.04em;padding:7px 15px;border:1px solid var(--line);border-radius:30px;color:var(--ink-soft);background:rgba(255,255,255,.4);font-weight:500}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .btn-primary{background:var(--teal);color:#fff;padding:15px 30px;border-radius:34px;font-weight:600;font-size:.88rem;transition:all .4s;box-shadow:0 14px 32px -14px rgba(42,106,130,.8)}
+  .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--teal);color:#fff;padding:15px 30px;border-radius:34px;font-weight:600;font-size:.88rem;transition:all .4s;box-shadow:0 14px 32px -14px rgba(42,106,130,.8)}
   .btn-primary:hover{background:var(--teal-deep);transform:translateY(-3px);box-shadow:0 20px 40px -16px rgba(42,106,130,.9)}
-  .btn-ghost{padding:15px 28px;border-radius:34px;border:1px solid var(--teal);color:var(--teal);font-weight:600;font-size:.88rem;transition:all .4s}
+  .btn-ghost{display:inline-flex;align-items:center;justify-content:center;padding:15px 28px;border-radius:34px;border:1px solid var(--teal);color:var(--teal);font-weight:600;font-size:.88rem;transition:all .4s}
   .btn-ghost:hover{background:var(--teal);color:#fff}
 
   .hero-portrait{position:relative}
@@ -161,13 +161,10 @@
   /* ===== About ===== */
   #about{background:linear-gradient(180deg,var(--paper),var(--paper-2))}
   .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
-  .about-imgcol{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:sticky;top:110px}
+  .about-imgcol{position:sticky;top:110px;max-width:420px}
   .about-imgcol .gimg{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer}
-  .about-imgcol .gimg img{width:100%;height:100%;object-fit:cover;transition:transform .9s}
-  .about-imgcol .gimg:hover img{transform:scale(1.07)}
-  .about-imgcol .tall{grid-row:span 2}
-  .about-imgcol .tall img{aspect-ratio:3/5}
-  .about-imgcol .short img{aspect-ratio:1/1}
+  .about-imgcol .gimg img{width:100%;height:100%;object-fit:cover;transition:transform .9s;aspect-ratio:3/4}
+  .about-imgcol .gimg:hover img{transform:scale(1.04)}
   .about-body p{color:var(--ink-soft);margin-bottom:20px;font-size:1.02rem;font-weight:300}
   .about-body p:first-of-type::first-letter{font-family:var(--serif);font-size:3.4rem;float:left;line-height:.8;margin:6px 12px 0 0;color:var(--teal);font-weight:600}
   .about-body .lead{font-family:var(--serif);font-size:1.5rem;line-height:1.4;color:var(--ink);font-weight:500;margin-bottom:28px}
@@ -186,45 +183,14 @@
 
   /* ===== Services ===== */
   .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .svc{position:relative;background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:var(--r);padding:34px 30px;transition:all .5s cubic-bezier(.2,.7,.2,1);overflow:hidden;cursor:pointer}
-  .svc::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .5s}
-  .svc:hover{transform:translateY(-8px);box-shadow:var(--shadow);background:#fff}
-  .svc:hover::before{transform:scaleX(1)}
+  .svc{position:relative;background:#ffffff;border:1px solid rgba(28,43,48,.05);border-radius:var(--r);padding:42px 36px;transition:all .5s cubic-bezier(.2,.7,.2,1);overflow:hidden;}
+  .svc:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 30px 60px -15px rgba(29,74,92,.1);border-color:var(--gold-soft);}
   .svc-num{position:absolute;top:22px;right:26px;font-family:var(--serif);font-size:2.6rem;color:var(--paper-2);font-weight:600;transition:color .4s}
   .svc:hover .svc-num{color:var(--blue-soft)}
-  .svc-ico{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(42,106,130,.12),rgba(122,176,199,.18));display:flex;align-items:center;justify-content:center;margin-bottom:22px}
-  .svc-ico svg{width:28px;height:28px;stroke:var(--teal);stroke-width:1.5;fill:none}
-  .svc h3{font-size:1.45rem;color:var(--ink);margin-bottom:12px}
-  .svc p{font-size:.92rem;color:var(--ink-soft);font-weight:300;margin-bottom:18px}
-  .svc-more{font-size:.8rem;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:7px;transition:gap .3s}
-  .svc:hover .svc-more{gap:12px}
-
-  /* ===== Detailed sections (accordion) ===== */
-  #detail{background:linear-gradient(180deg,var(--paper-2),var(--paper))}
-  .acc{border-top:1px solid var(--line)}
-  .acc-item{border-bottom:1px solid var(--line)}
-  .acc-head{display:flex;align-items:center;gap:26px;padding:30px 6px;cursor:pointer;transition:all .4s}
-  .acc-head:hover{padding-left:18px}
-  .acc-idx{font-family:var(--serif);font-size:1.1rem;color:var(--gold);font-weight:600;min-width:34px}
-  .acc-title{flex:1}
-  .acc-title h3{font-size:clamp(1.4rem,2.6vw,2rem);color:var(--ink);transition:color .3s}
-  .acc-title p{font-size:.86rem;color:var(--ink-soft);font-weight:400;margin-top:4px}
-  .acc-item.open .acc-title h3{color:var(--teal)}
-  .acc-toggle{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:all .4s;position:relative}
-  .acc-toggle::before,.acc-toggle::after{content:"";position:absolute;background:var(--teal);border-radius:2px;transition:all .4s}
-  .acc-toggle::before{width:15px;height:2px}
-  .acc-toggle::after{width:2px;height:15px}
-  .acc-item.open .acc-toggle{background:var(--teal);transform:rotate(135deg)}
-  .acc-item.open .acc-toggle::before,.acc-item.open .acc-toggle::after{background:#fff}
-  .acc-body{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.4,0,.2,1)}
-  .acc-inner{padding:8px 6px 40px 60px}
-  .acc-inner h4{font-family:var(--serif);font-size:1.25rem;color:var(--teal);margin:22px 0 8px}
-  .acc-inner h4:first-child{margin-top:0}
-  .acc-inner p{color:var(--ink-soft);font-weight:300;margin-bottom:14px;font-size:1rem;max-width:820px}
-  .acc-inner ul{list-style:none;margin:6px 0 16px;max-width:820px}
-  .acc-inner li{position:relative;padding-left:28px;margin-bottom:10px;color:var(--ink-soft);font-weight:300;font-size:.98rem}
-  .acc-inner li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:3px;background:var(--blue);transform:rotate(45deg)}
-  .acc-inner .closing{font-family:var(--serif);font-size:1.12rem;font-style:italic;color:var(--ink);border-left:2px solid var(--gold);padding-left:18px;margin-top:18px}
+  .svc-ico{width:54px;height:54px;margin-bottom:26px;display:flex;align-items:center;justify-content:flex-start;}
+  .svc-ico svg{width:38px;height:38px;stroke:var(--teal-deep);stroke-width:1.2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .svc h3{font-size:1.5rem;color:var(--ink);margin-bottom:12px;font-weight:600;}
+  .svc p{font-size:.95rem;color:var(--ink-soft);font-weight:300;margin-bottom:0;}
 
   /* ===== Space gallery ===== */
   #space{background:var(--teal-deep);color:#fff;overflow:hidden}
@@ -251,12 +217,12 @@
   /* ===== Reviews ===== */
   #reviews{background:linear-gradient(180deg,var(--paper),var(--paper-2))}
   .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .rev{background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:var(--r);padding:32px 30px;transition:all .5s;position:relative}
+  .rev{background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:var(--r);padding:32px 30px;transition:all .5s;position:relative;display:flex;flex-direction:column;}
   .rev:hover{transform:translateY(-6px);box-shadow:var(--shadow);background:#fff}
   .rev .quote{font-family:var(--serif);font-size:3.4rem;color:var(--blue-soft);line-height:.6;height:26px}
-  .rev p{color:var(--ink-soft);font-weight:300;font-size:.98rem;margin:14px 0 22px;font-style:italic}
+  .rev p{color:var(--ink-soft);font-weight:300;font-size:.98rem;margin:14px 0 22px;font-style:italic;flex-grow:1;}
   .rev .stars{color:var(--gold);letter-spacing:3px;font-size:.95rem;margin-bottom:14px}
-  .rev .who{display:flex;align-items:center;gap:12px}
+  .rev .who{display:flex;align-items:center;gap:12px;margin-top:auto;}
   .rev .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:1.1rem;font-weight:600;flex:none}
   .rev .who b{font-size:.92rem;font-weight:600;color:var(--ink);display:block}
   .rev .who span{font-size:.76rem;color:var(--ink-soft)}
@@ -347,7 +313,7 @@
     .hero-sub{margin-left:auto;margin-right:auto}
     .hero-portrait{max-width:400px;margin:0 auto}
     .about-grid{grid-template-columns:1fr;gap:40px}
-    .about-imgcol{position:static;max-width:480px}
+    .about-imgcol{position:static;max-width:480px;margin:0 auto;}
     .contact-grid{grid-template-columns:1fr;gap:40px}
     .foot-top{grid-template-columns:1fr;gap:30px}
   }
@@ -360,8 +326,6 @@
     .space-grid{grid-template-columns:1fr}
     .pad{padding:72px 0}
     .creds{grid-template-columns:1fr}
-    .acc-inner{padding-left:6px}
-    .acc-head{gap:14px}
   }
   @media(max-width:480px){
     .wrap{padding:0 20px}
@@ -377,7 +341,6 @@
 </head>
 <body class="lang-el no-scroll">
 
-<!-- LOADER -->
 <div id="loader">
   <svg class="loader-puzzle" viewBox="0 0 100 100">
     <path d="M30 26h14c0-4 2-7 6-7s6 3 6 7h14v14c4 0 7 2 7 6s-3 6-7 6v14H56c0 4-2 7-6 7s-6-3-6-7H30V52c-4 0-7-2-7-6s3-6 7-6V26z" fill="#2a6a82"/>
@@ -387,7 +350,6 @@
 
 <div class="progress" id="progress"></div>
 
-<!-- HEADER -->
 <header id="header">
   <div class="nav">
     <a href="#home" class="brand" aria-label="Δώρα Σιζοπούλου — αρχική">
@@ -415,7 +377,7 @@
     <nav class="nav-links">
       <a href="#about" data-lang-el>Προφίλ</a><a href="#about" data-lang-en>About</a>
       <a href="#services" data-lang-el>Υπηρεσίες</a><a href="#services" data-lang-en>Services</a>
-      <a href="#detail" data-lang-el>Αναλυτικά</a><a href="#detail" data-lang-en>In Depth</a>
+      <a href="services.html" data-lang-el>Αναλυτικά</a><a href="services.html" data-lang-en>In Depth</a>
       <a href="#space" data-lang-el>Ο Χώρος</a><a href="#space" data-lang-en>The Space</a>
       <a href="#reviews" data-lang-el>Μαρτυρίες</a><a href="#reviews" data-lang-en>Reviews</a>
     </nav>
@@ -437,14 +399,13 @@
   </div>
 </header>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Κλείσιμο">
     <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <a href="#about" class="mm-link"><span data-lang-el>Προφίλ</span><span data-lang-en>About</span></a>
   <a href="#services" class="mm-link"><span data-lang-el>Υπηρεσίες</span><span data-lang-en>Services</span></a>
-  <a href="#detail" class="mm-link"><span data-lang-el>Αναλυτικά</span><span data-lang-en>In Depth</span></a>
+  <a href="services.html" class="mm-link"><span data-lang-el>Αναλυτικά</span><span data-lang-en>In Depth</span></a>
   <a href="#space" class="mm-link"><span data-lang-el>Ο Χώρος</span><span data-lang-en>The Space</span></a>
   <a href="#reviews" class="mm-link"><span data-lang-el>Μαρτυρίες</span><span data-lang-en>Reviews</span></a>
   <a href="#contact" class="mm-link"><span data-lang-el>Επικοινωνία</span><span data-lang-en>Contact</span></a>
@@ -457,7 +418,6 @@
   </div>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"><div class="blob a"></div><div class="blob b"></div></div>
   <div class="wrap">
@@ -501,7 +461,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="pad">
   <div class="wrap">
     <div class="about-grid">
@@ -509,26 +468,18 @@
         <div class="gimg tall lb-trigger" data-src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/unnamed-108.jpg">
           <img src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/unnamed-108.jpg" alt="Θεοδώρα Σιζοπούλου">
         </div>
-        <div class="gimg short lb-trigger" data-src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4409.JPG">
-          <img src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4409.JPG" alt="Πινακίδα ιατρείου">
-        </div>
-        <div class="gimg short lb-trigger" data-src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4410.JPG">
-          <img src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4410.JPG" alt="Επαγγελματική ταυτότητα">
-        </div>
       </div>
 
       <div class="about-body reveal-r">
         <span class="eyebrow"><span data-lang-el>Γνωριμία</span><span data-lang-en>Get to know me</span></span>
         <h2 class="sec-head" style="margin-bottom:24px"><span data-lang-el>Θεοδώρα Σιζοπούλου</span><span data-lang-en>Theodora Sizopoulou</span></h2>
 
-        <!-- EL -->
         <div data-lang-el>
           <p class="lead">Με βαθιά ανθρωποκεντρική προσέγγιση και πολυετή εμπειρία στην ψυχοθεραπεία και την απεξάρτηση.</p>
           <p>Η Θεοδώρα Σιζοπούλου είναι Ψυχολόγος, απόφοιτη του Τμήματος Ψυχολογίας του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης, με μεταπτυχιακό τίτλο στην Κλινική και Κοινωνική Ψυχολογία των Εξαρτήσεων από το ίδιο Πανεπιστήμιο. Έχει εκπαιδευτεί και πιστοποιηθεί στη Συστημική – Οικογενειακή Θεραπεία και στη θεραπεία του ψυχικού τραύματος. Είναι ευρωπαϊκά πιστοποιημένη θεραπεύτρια EMDR (EMDR Europe Accredited Practitioner) και επόπτρια (EMDR Europe Consultant in training) σύμφωνα με τα κριτήρια της EMDR Europe. Επίσης διαθέτει επιπλέον εξειδίκευση στη δυναμική ομάδων, στη διαχείριση πένθους και στη θεραπεία των εξαρτήσεων. Παρακολουθεί τις επιστημονικές εξελίξεις στο χώρο της Ψυχολογίας και συμμετέχει σε επιστημονικά συνέδρια με ανακοινώσεις όπως και σε ερευνητικά προγράμματα. Δεν σταματά να εκπαιδεύεται με στόχο την καλύτερη ποιότητα υπηρεσιών σε όσους την εμπιστεύονται.</p>
           <p>Εργάστηκε για 24 χρόνια στο ΚΕΘΕΑ ΙΘΑΚΗ, 22 από τα οποία σε θέσεις ευθύνης, όπως στο Συμβουλευτικό Κέντρο, το Κέντρο Οικογενειακής Υποστήριξης, τη Μονάδα Διπλής Διάγνωσης και τη Θεραπευτική Κοινότητα. Παράλληλα, διετέλεσε επόπτρια πρακτικής άσκησης φοιτητών Ψυχολογίας του Αριστοτελείου Πανεπιστημίου από το 2002, συμβάλλοντας ενεργά στη διαμόρφωση νέων επαγγελματιών ψυχικής υγείας.</p>
           <p>Με πολυετή εμπειρία στον χώρο της ψυχοθεραπείας και της απεξάρτησης, καθώς και βαθιά ανθρωποκεντρική προσέγγιση, η κ. Σιζοπούλου προσφέρει ένα ασφαλές και υποστηρικτικό θεραπευτικό πλαίσιο για άτομα, ζεύγη και οικογένειες, εστιάζοντας στην ενδυνάμωση, την ψυχική ανθεκτικότητα και την αποκατάσταση της εσωτερικής ισορροπίας και ευημερίας.</p>
         </div>
-        <!-- EN -->
         <div data-lang-en>
           <p class="lead">A deeply human-centered approach, grounded in many years of psychotherapy and addiction recovery practice.</p>
           <p>Theodora Sizopoulou is a Psychologist, a graduate of the Department of Psychology at the Aristotle University of Thessaloniki, holding a Master's degree in the Clinical and Social Psychology of Addictions from the same University. She is trained and certified in Systemic – Family Therapy and in the treatment of psychological trauma. She is a European-accredited EMDR therapist (EMDR Europe Accredited Practitioner) and a consultant (EMDR Europe Consultant in training) in line with EMDR Europe criteria. She also holds further specialization in group dynamics, grief management and addiction treatment. She follows scientific developments in the field of Psychology and takes part in scientific conferences with presentations, as well as in research programs. She never stops training, aiming for the highest quality of care for those who trust her.</p>
@@ -574,7 +525,6 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services" class="pad">
   <div class="wrap">
     <div class="sec-head center reveal">
@@ -582,333 +532,67 @@
       <h2><span data-lang-el>Θεραπευτικές υπηρεσίες</span><span data-lang-en>Therapeutic services</span></h2>
       <p><span data-lang-el>Εξατομικευμένη φροντίδα, προσαρμοσμένη στις ανάγκες κάθε ανθρώπου, ζεύγους και οικογένειας.</span><span data-lang-en>Personalized care, tailored to the needs of each person, couple and family.</span></p>
     </div>
+    
     <div class="svc-grid">
-      <a href="#detail" class="svc reveal d1" data-acc="0">
+      <div class="svc reveal d1">
         <span class="svc-num">01</span>
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg></div>
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12C22 12 19 19 12 19C5 19 2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <h3 data-lang-el>Θεραπεία EMDR</h3><h3 data-lang-en>EMDR Therapy</h3>
         <p data-lang-el>Σύγχρονη, επιστημονικά τεκμηριωμένη μέθοδος για τραύμα, φοβίες και άγχος μέσω αμφίπλευρης διέγερσης.</p>
         <p data-lang-en>A modern, evidence-based method for trauma, phobias and anxiety through bilateral stimulation.</p>
-        <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span> →</span>
-      </a>
-      <a href="#detail" class="svc reveal d2" data-acc="1">
+      </div>
+      
+      <div class="svc reveal d2">
         <span class="svc-num">02</span>
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div>
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3 data-lang-el>Θεραπεία PTSD</h3><h3 data-lang-en>PTSD Therapy</h3>
         <p data-lang-el>Εξατομικευμένη αντιμετώπιση του μετατραυματικού στρες, με στόχο την επεξεργασία του τραύματος.</p>
         <p data-lang-en>Individualized treatment of post-traumatic stress, focused on processing the trauma.</p>
-        <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span> →</span>
-      </a>
-      <a href="#detail" class="svc reveal d3" data-acc="2">
+      </div>
+      
+      <div class="svc reveal d3">
         <span class="svc-num">03</span>
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
         <h3 data-lang-el>Διαταραχές Διάθεσης</h3><h3 data-lang-en>Mood Disorders</h3>
         <p data-lang-el>Υποστήριξη για κατάθλιψη, διπολική διαταραχή και σχετιζόμενες συναισθηματικές καταστάσεις.</p>
         <p data-lang-en>Support for depression, bipolar disorder and related emotional conditions.</p>
-        <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span> →</span>
-      </a>
-      <a href="#detail" class="svc reveal d1" data-acc="3">
+      </div>
+      
+      <div class="svc reveal d1">
         <span class="svc-num">04</span>
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/></svg></div>
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg></div>
         <h3 data-lang-el>Διαταραχές Άγχους</h3><h3 data-lang-en>Anxiety Disorders</h3>
         <p data-lang-el>Διαχείριση γενικευμένου άγχους, κρίσεων πανικού, φοβιών και κοινωνικού άγχους.</p>
         <p data-lang-en>Management of generalized anxiety, panic attacks, phobias and social anxiety.</p>
-        <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span> →</span>
-      </a>
-      <a href="#detail" class="svc reveal d2" data-acc="4">
+      </div>
+      
+      <div class="svc reveal d2">
         <span class="svc-num">05</span>
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
         <h3 data-lang-el>Απεξάρτηση</h3><h3 data-lang-en>Addiction Recovery</h3>
         <p data-lang-el>Ολιστική, ψυχοκοινωνική προσέγγιση για τη διακοπή της χρήσης και την αποκατάσταση.</p>
         <p data-lang-en>A holistic, psychosocial approach to ending use and restoring well-being.</p>
-        <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span> →</span>
-      </a>
-      <a href="#detail" class="svc reveal d3" data-acc="5">
+      </div>
+      
+      <div class="svc reveal d3">
         <span class="svc-num">06</span>
-        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
         <h3 data-lang-el>Οικογενειακή Θεραπεία</h3><h3 data-lang-en>Family Therapy</h3>
         <p data-lang-el>Ενίσχυση της επικοινωνίας, της συνοχής και της κατανόησης μεταξύ των μελών της οικογένειας.</p>
         <p data-lang-en>Strengthening communication, cohesion and understanding within the family.</p>
-        <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span> →</span>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 50px;" class="reveal">
+      <a href="services.html" class="btn-primary">
+        <span data-lang-el>Οι υπηρεσίες, αναλυτικά</span>
+        <span data-lang-en>Services in detail</span>
       </a>
     </div>
+
   </div>
 </section>
 
-<!-- DETAIL ACCORDION -->
-<section id="detail" class="pad">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow"><span data-lang-el>Αναλυτικά</span><span data-lang-en>In depth</span></span>
-      <h2><span data-lang-el>Οι υπηρεσίες, αναλυτικά</span><span data-lang-en>The services, in detail</span></h2>
-      <p><span data-lang-el>Πατήστε σε κάθε ενότητα για να μάθετε περισσότερα.</span><span data-lang-en>Tap each section to learn more.</span></p>
-    </div>
-
-    <div class="acc reveal">
-      <!-- 0 EMDR -->
-      <div class="acc-item">
-        <div class="acc-head">
-          <span class="acc-idx">01</span>
-          <div class="acc-title">
-            <h3 data-lang-el>Τι είναι η Θεραπεία EMDR;</h3><h3 data-lang-en>What is EMDR Therapy?</h3>
-            <p data-lang-el>Μία σύγχρονη προσέγγιση στην αντιμετώπιση τραύματος και στρες</p>
-            <p data-lang-en>A modern approach to treating trauma and stress</p>
-          </div>
-          <span class="acc-toggle"></span>
-        </div>
-        <div class="acc-body"><div class="acc-inner">
-          <div data-lang-el>
-            <h4>Ολοκληρωμένη Περιγραφή της Θεραπείας EMDR</h4>
-            <p>Η θεραπεία EMDR (Eye Movement Desensitization and Reprocessing – Απευαισθητοποίηση και Επανεπεξεργασία μέσω αμφίπλευρου διεστιακού ερεθισμού) αποτελεί μια πρωτοποριακή, συνθετική και επιστημονικά τεκμηριωμένη ψυχοθεραπευτική προσέγγιση για την αντιμετώπιση τραυματικών βιωμάτων, φοβιών, άγχους και άλλων ψυχολογικών δυσκολιών. Στοχεύει στην ανακούφιση της δυσφορίας που σχετίζεται με παρελθοντικά τραυματικά ή στρεσογόνα βιώματα, στην αντιμετώπιση των συμπτωμάτων που είναι αποτέλεσμα αντίξοων εμπειριών αλλά και στις ανησυχίες για το μέλλον.</p>
-            <h4>Πώς λειτουργεί η θεραπεία EMDR;</h4>
-            <p>Η θεραπεία EMDR βασίζεται στη φυσική ικανότητα του εγκεφάλου να επεξεργάζεται και να αφομοιώνει δύσκολες ή τραυματικές εμπειρίες. Πραγματοποιείται με τη συνεργασία θεραπευτή και θεραπευόμενου, σε ένα ασφαλές και υποστηρικτικό περιβάλλον. Ο θεραπευτής καθοδηγεί το άτομο στην αναγνώριση και επεξεργασία τραυματικών αναμνήσεων, χρησιμοποιώντας αμφίπλευρη διέγερση (συνήθως κινήσεις των ματιών).</p>
-            <p>Μέσω της καθοδηγούμενης διέγερσης των ματιών (ή άλλων αμφίπλευρων ερεθισμάτων, όπως ήχοι ή απτικά ερεθίσματα), ο θεραπευόμενος ανακαλεί τραυματικές ή δυσφορικές αναμνήσεις ενώ παράλληλα ενεργοποιείται η διαδικασία επεξεργασίας και αποφόρτισης των αρνητικών συναισθημάτων και πεποιθήσεων για τον εαυτό αλλά και της σωματικής δυσφορίας. Η διαδικασία αυτή βοηθάει το άτομο στη δημιουργία και ενσωμάτωση νέων, θετικότερων πεποιθήσεων και πιο προσαρμοστικών μηχανισμών διαχείρισης. Εφαρμόζει δομημένα θεραπευτικά πρωτόκολλα, ώστε να επαυξάνεται η θεραπευτική αποτελεσματικότητα.</p>
-            <h4>Σε ποιους απευθύνεται η EMDR;</h4>
-            <p>Η ψυχοθεραπεία EMDR απευθύνεται σε άτομα που έχουν βιώσει τραυματικά γεγονότα (όπως ατυχήματα, απώλεια, κακοποίηση), αλλά και σε όσους αντιμετωπίζουν χρόνιο άγχος, κρίσεις πανικού, φοβίες, κατάθλιψη ή δυσκολίες στις διαπροσωπικές τους σχέσεις. Η EMDR εφαρμόζεται τόσο σε ενήλικες όσο και σε παιδιά και εφήβους.</p>
-            <h4>Οφέλη της θεραπείας EMDR</h4>
-            <ul>
-              <li>Μείωση των συμπτωμάτων του τραύματος και του άγχους</li>
-              <li>Βελτίωση της αυτοεκτίμησης και της ψυχικής ανθεκτικότητας</li>
-              <li>Ανακούφιση από παρελθοντικές δυσάρεστες εμπειρίες που επηρεάζουν το παρόν</li>
-              <li>Ενίσχυση της ικανότητας διαχείρισης στρεσογόνων καταστάσεων</li>
-            </ul>
-            <h4>Γιατί να επιλέξετε τη θεραπεία EMDR;</h4>
-            <p>Η EMDR συστήνεται από διεθνείς οργανισμούς ψυχικής υγείας (όπως ο Παγκόσμιος Οργανισμός Υγείας) για τη θεραπεία του τραύματος και του μετατραυματικού στρες. Η αποτελεσματικότητά της έχει αποδειχθεί μέσα από πολυάριθμες επιστημονικές έρευνες. Εάν αναζητάτε μια ασφαλή, δοκιμασμένη και μη επεμβατική μέθοδο για την αντιμετώπιση δύσκολων συναισθημάτων και εμπειριών, η θεραπεία EMDR μπορεί να σας προσφέρει τα εργαλεία για μια ουσιαστική αλλαγή και ανακούφιση.</p>
-            <p class="closing">Για περισσότερες πληροφορίες ή για να κλείσετε ένα ραντεβού, επικοινωνήστε μαζί μου. Είμαι εδώ για να σας στηρίξω στο ταξίδι προς την ψυχική ισορροπία και ευεξία.</p>
-          </div>
-          <div data-lang-en>
-            <h4>A Complete Overview of EMDR Therapy</h4>
-            <p>EMDR (Eye Movement Desensitization and Reprocessing) is a pioneering, integrative and evidence-based psychotherapeutic approach for addressing traumatic experiences, phobias, anxiety and other psychological difficulties. It aims to relieve the distress linked to past traumatic or stressful experiences, to treat symptoms resulting from adverse experiences, and to ease worries about the future.</p>
-            <h4>How does EMDR work?</h4>
-            <p>EMDR draws on the brain's natural ability to process and integrate difficult or traumatic experiences. It takes place in collaboration between therapist and client, within a safe and supportive environment. The therapist guides the person in recognizing and processing traumatic memories using bilateral stimulation (usually eye movements).</p>
-            <p>Through guided eye movements (or other bilateral stimuli such as sounds or tactile signals), the client recalls traumatic or distressing memories while the process of reprocessing and discharging negative emotions, self-beliefs and physical discomfort is activated. This helps the person form and integrate new, more positive beliefs and more adaptive coping mechanisms. Structured therapeutic protocols are applied to enhance effectiveness.</p>
-            <h4>Who is EMDR for?</h4>
-            <p>EMDR is intended for people who have experienced traumatic events (such as accidents, loss, abuse), as well as those facing chronic anxiety, panic attacks, phobias, depression or difficulties in their relationships. EMDR is applied both to adults and to children and adolescents.</p>
-            <h4>Benefits of EMDR therapy</h4>
-            <ul>
-              <li>Reduction of trauma and anxiety symptoms</li>
-              <li>Improved self-esteem and psychological resilience</li>
-              <li>Relief from past distressing experiences that affect the present</li>
-              <li>Strengthened ability to manage stressful situations</li>
-            </ul>
-            <h4>Why choose EMDR therapy?</h4>
-            <p>EMDR is recommended by international mental-health organizations (such as the World Health Organization) for treating trauma and post-traumatic stress. Its effectiveness has been demonstrated through numerous scientific studies. If you are looking for a safe, proven and non-invasive method to address difficult emotions and experiences, EMDR can offer you the tools for meaningful change and relief.</p>
-            <p class="closing">For more information or to book an appointment, get in touch with me. I am here to support you on the journey toward psychological balance and well-being.</p>
-          </div>
-        </div></div>
-      </div>
-
-      <!-- 1 PTSD -->
-      <div class="acc-item">
-        <div class="acc-head">
-          <span class="acc-idx">02</span>
-          <div class="acc-title">
-            <h3 data-lang-el>Θεραπεία για τη Διαταραχή Μετατραυματικού Στρες (PTSD)</h3><h3 data-lang-en>Treatment for Post-Traumatic Stress Disorder (PTSD)</h3>
-            <p data-lang-el>Πώς η εξειδικευμένη θεραπεία μπορεί να βοηθήσει στην αντιμετώπιση του PTSD</p>
-            <p data-lang-en>How specialized therapy can help in addressing PTSD</p>
-          </div>
-          <span class="acc-toggle"></span>
-        </div>
-        <div class="acc-body"><div class="acc-inner">
-          <div data-lang-el>
-            <h4>Τι είναι το PTSD;</h4>
-            <p>Η Διαταραχή Μετατραυματικού Στρες (PTSD) είναι μια ψυχική κατάσταση που εμφανίζεται ως αντίδραση σε τραυματικά γεγονότα, όπως ατυχήματα, φυσικές καταστροφές, βία ή απώλεια αγαπημένων προσώπων. Τα συμπτώματα συχνά περιλαμβάνουν έντονες αναμνήσεις, εφιάλτες, συναισθηματική αποστασιοποίηση, ανησυχία και δυσκολία στη διαχείριση της καθημερινότητας.</p>
-            <h4>Πώς λειτουργεί η θεραπεία του PTSD;</h4>
-            <p>Η θεραπεία του PTSD είναι εξατομικευμένη και προσαρμόζεται στις ανάγκες του κάθε ατόμου. Ο στόχος είναι η ανακούφιση των συμπτωμάτων, η επεξεργασία του τραύματος και η ενίσχυση της ψυχικής ανθεκτικότητας.</p>
-            <p>Η θεραπεία μπορεί να προσφέρει ουσιαστική βελτίωση στην ποιότητα ζωής. Μειώνει τις ανεπιθύμητες σκέψεις και τα συναισθήματα, βοηθά στην αποκατάσταση της λειτουργικότητας και ενισχύει την αυτοπεποίθηση του ατόμου. Η εξατομικευμένη αξιολόγηση και η συνεχής υποστήριξη συμβάλλουν στην αποτελεσματική διαχείριση των συμπτωμάτων και στην ενδυνάμωση της ψυχικής υγείας. Με τη σωστή υποστήριξη, πολλά άτομα καταφέρνουν να επανακτήσουν τον έλεγχο της ζωής τους και να χτίσουν ένα πιο αισιόδοξο μέλλον.</p>
-          </div>
-          <div data-lang-en>
-            <h4>What is PTSD?</h4>
-            <p>Post-Traumatic Stress Disorder (PTSD) is a mental-health condition that appears as a reaction to traumatic events such as accidents, natural disasters, violence or the loss of loved ones. Symptoms often include intense memories, nightmares, emotional detachment, anxiety and difficulty managing everyday life.</p>
-            <h4>How does PTSD treatment work?</h4>
-            <p>Treatment for PTSD is individualized and adapted to each person's needs. The goal is to relieve symptoms, process the trauma and strengthen psychological resilience.</p>
-            <p>Therapy can bring meaningful improvement to quality of life. It reduces unwanted thoughts and feelings, helps restore functioning and strengthens self-confidence. Individualized assessment and continuous support contribute to the effective management of symptoms and to the empowerment of mental health. With the right support, many people manage to regain control of their lives and build a more hopeful future.</p>
-          </div>
-        </div></div>
-      </div>
-
-      <!-- 2 Mood -->
-      <div class="acc-item">
-        <div class="acc-head">
-          <span class="acc-idx">03</span>
-          <div class="acc-title">
-            <h3 data-lang-el>Θεραπεία Διαταραχών Διάθεσης</h3><h3 data-lang-en>Treatment of Mood Disorders</h3>
-            <p data-lang-el>Στήριξη για την αντιμετώπιση των διαταραχών διάθεσης</p>
-            <p data-lang-en>Support for addressing mood disorders</p>
-          </div>
-          <span class="acc-toggle"></span>
-        </div>
-        <div class="acc-body"><div class="acc-inner">
-          <div data-lang-el>
-            <h4>Τι είναι οι διαταραχές διάθεσης;</h4>
-            <p>Οι διαταραχές διάθεσης αποτελούν μια ομάδα ψυχικών διαταραχών που χαρακτηρίζονται από σημαντικές μεταβολές στη συναισθηματική κατάσταση ενός ατόμου. Συχνότερες μορφές είναι η κατάθλιψη, η διπολική διαταραχή και οι σχετιζόμενες καταστάσεις. Τα συμπτώματα μπορεί να περιλαμβάνουν θλίψη, απελπισία, έντονη ευφορία ή εναλλαγές διάθεσης που επηρεάζουν την καθημερινή ζωή, τις σχέσεις και την εργασία.</p>
-            <h4>Στόχοι της θεραπείας</h4>
-            <p>Η θεραπεία των διαταραχών διάθεσης στοχεύει στην ανακούφιση των συμπτωμάτων, στην ουσιαστική βελτίωση της λειτουργικότητας και στην ενίσχυση της ποιότητας ζωής. Κάθε θεραπευτικό πλάνο προσαρμόζεται στις ατομικές ανάγκες του κάθε ατόμου, λαμβάνοντας υπόψη το ιστορικό, τη σοβαρότητα της διαταραχής. Μέσα από εξειδικευμένη φροντίδα, κάθε άτομο μπορεί να ανακτήσει τη χαμένη ισορροπία και να αναπτύξει ανθεκτικότητα απέναντι στις δυσκολίες.</p>
-          </div>
-          <div data-lang-en>
-            <h4>What are mood disorders?</h4>
-            <p>Mood disorders are a group of mental-health conditions marked by significant changes in a person's emotional state. The most common forms are depression, bipolar disorder and related conditions. Symptoms may include sadness, hopelessness, intense euphoria or mood swings that affect daily life, relationships and work.</p>
-            <h4>Goals of therapy</h4>
-            <p>Treatment of mood disorders aims to relieve symptoms, meaningfully improve functioning and enhance quality of life. Each treatment plan is adapted to the individual needs of each person, taking into account their history and the severity of the disorder. Through specialized care, every person can regain lost balance and develop resilience in the face of difficulties.</p>
-          </div>
-        </div></div>
-      </div>
-
-      <!-- 3 Anxiety -->
-      <div class="acc-item">
-        <div class="acc-head">
-          <span class="acc-idx">04</span>
-          <div class="acc-title">
-            <h3 data-lang-el>Θεραπεία Διαταραχών Άγχους</h3><h3 data-lang-en>Treatment of Anxiety Disorders</h3>
-            <p data-lang-el>Για τη βελτίωση της ψυχικής υγείας</p>
-            <p data-lang-en>For the improvement of mental health</p>
-          </div>
-          <span class="acc-toggle"></span>
-        </div>
-        <div class="acc-body"><div class="acc-inner">
-          <div data-lang-el>
-            <h4>Τι είναι οι διαταραχές άγχους;</h4>
-            <p>Οι διαταραχές άγχους αποτελούν μία από τις πιο συχνές ψυχικές διαταραχές, επηρεάζοντας εκατομμύρια ανθρώπους παγκοσμίως. Χαρακτηρίζονται από υπερβολικό και επίμονο άγχος, φόβο ή ανησυχία που συχνά είναι δυσανάλογα προς τις πραγματικές προκλήσεις της καθημερινότητας. Κάποιες από τις συνηθέστερες μορφές διαταραχών άγχους περιλαμβάνουν τη γενικευμένη αγχώδη διαταραχή, τη διαταραχή πανικού, τις φοβίες, την κοινωνική αγχώδη διαταραχή και τη διαταραχή μετατραυματικού στρες.</p>
-            <h4>Στόχοι της θεραπείας διαταραχών άγχους</h4>
-            <p>Η θεραπεία των διαταραχών άγχους στοχεύει στην ανακούφιση των συμπτωμάτων, στη βελτίωση της ποιότητας ζωής του ατόμου και στην ενίσχυση των μηχανισμών διαχείρισης του άγχους. Κάθε θεραπευτική προσέγγιση προσαρμόζεται στις προσωπικές ανάγκες του κάθε ατόμου, λαμβάνοντας υπόψη το είδος, τη σοβαρότητα και τη διάρκεια των συμπτωμάτων.</p>
-            <p>Η έγκαιρη αντιμετώπιση των διαταραχών άγχους συμβάλλει σημαντικά στην πρόληψη επιπλοκών, όπως η κατάθλιψη, η κοινωνική απομόνωση και η επιβάρυνση της σωματικής υγείας. Μέσα από την κατάλληλη θεραπεία, το άτομο μπορεί να ανακτήσει τον έλεγχο της ζωής του, να ενισχύσει την αυτοπεποίθησή του και να απολαύσει ξανά την καθημερινότητα.</p>
-          </div>
-          <div data-lang-en>
-            <h4>What are anxiety disorders?</h4>
-            <p>Anxiety disorders are among the most common mental-health conditions, affecting millions of people worldwide. They are characterized by excessive and persistent anxiety, fear or worry that is often out of proportion to the real challenges of everyday life. Some of the most common forms include generalized anxiety disorder, panic disorder, phobias, social anxiety disorder and post-traumatic stress disorder.</p>
-            <h4>Goals of anxiety-disorder therapy</h4>
-            <p>Treatment of anxiety disorders aims to relieve symptoms, improve the person's quality of life and strengthen mechanisms for managing anxiety. Each therapeutic approach is adapted to the personal needs of each individual, taking into account the type, severity and duration of symptoms.</p>
-            <p>Timely treatment of anxiety disorders significantly helps prevent complications such as depression, social isolation and the burdening of physical health. Through appropriate therapy, a person can regain control of their life, strengthen their self-confidence and enjoy everyday life once again.</p>
-          </div>
-        </div></div>
-      </div>
-
-      <!-- 4 Addiction -->
-      <div class="acc-item">
-        <div class="acc-head">
-          <span class="acc-idx">05</span>
-          <div class="acc-title">
-            <h3 data-lang-el>Απεξάρτηση</h3><h3 data-lang-en>Addiction Recovery</h3>
-            <p data-lang-el>Η ψυχοκοινωνική προσέγγιση ως πυρήνας της απεξάρτησης</p>
-            <p data-lang-en>The psychosocial approach at the core of recovery</p>
-          </div>
-          <span class="acc-toggle"></span>
-        </div>
-        <div class="acc-body"><div class="acc-inner">
-          <div data-lang-el>
-            <h4>Τι είναι η θεραπεία απεξάρτησης</h4>
-            <p>Η θεραπεία απεξάρτησης αποτελεί μια πολυδιάστατη διαδικασία που στοχεύει στη διακοπή της χρήσης εξαρτησιογόνων ουσιών ή συμπεριφορών, καθώς και στην αποκατάσταση της σωματικής, ψυχικής και κοινωνικής υγείας του ατόμου. Η σύγχρονη προσέγγιση αναγνωρίζει ότι η εξάρτηση δεν είναι μόνο ένα ιατρικό πρόβλημα, αλλά συχνά συνδέεται με ψυχολογικούς, κοινωνικούς και περιβαλλοντικούς παράγοντες, απαιτώντας μια ολιστική αντιμετώπιση.</p>
-            <h4>Η ψυχοκοινωνική προσέγγιση ως πυρήνας της απεξάρτησης</h4>
-            <p>Η ψυχοκοινωνική προσέγγιση εστιάζει στην αντιμετώπιση των ψυχολογικών και κοινωνικών παραγόντων που σχετίζονται με την εξάρτηση. Ο πρωταρχικός στόχος είναι να βοηθήσει το άτομο να κατανοήσει τα βαθύτερα αίτια της εξάρτησης, να ενισχύσει τις δεξιότητες αντιμετώπισης των δυσκολιών και να ενδυναμώσει την αυτοεκτίμηση και την αίσθηση ελέγχου στη ζωή του.</p>
-            <h4>Κύρια στοιχεία της ψυχοκοινωνικής προσέγγισης</h4>
-            <ul>
-              <li><b>Ομαδική θεραπεία:</b> Παρέχει ένα ασφαλές περιβάλλον για την ανταλλαγή εμπειριών, την αλληλοϋποστήριξη και την ανάπτυξη δεξιοτήτων επικοινωνίας και συνεργασίας. Ενισχύει το αίσθημα του ανήκειν και μειώνει το κοινωνικό στίγμα.</li>
-              <li><b>Ατομική ψυχοθεραπεία:</b> Στοχεύει στη διερεύνηση των προσωπικών αιτιών της εξάρτησης, στην ενίσχυση των μηχανισμών άμυνας και στην ανάπτυξη νέων στρατηγικών διαχείρισης του στρες και των συναισθημάτων.</li>
-              <li><b>Οικογενειακή συμβουλευτική:</b> Ενισχύει τη συμμετοχή και την κατανόηση της οικογένειας, διαμορφώνοντας ένα υποστηρικτικό περιβάλλον για το άτομο.</li>
-              <li><b>Εκπαίδευση και επανένταξη:</b> Βοηθά στην απόκτηση νέων γνώσεων και δεξιοτήτων που διευκολύνουν την κοινωνική και επαγγελματική επανένταξη.</li>
-            </ul>
-            <h4>Μακροχρόνια διατήρηση της αποχής</h4>
-            <p>Η ψυχοκοινωνική προσέγγιση δεν επικεντρώνεται μόνο στη διακοπή της χρήσης, αλλά και στην πρόληψη της υποτροπής. Ενισχύει την ανθεκτικότητα, τη διαχείριση του άγχους και των προκλήσεων, ενώ προάγει την αυτονομία και την ποιότητα ζωής. Μέσω της δημιουργίας ενός υποστηρικτικού δικτύου, το άτομο αποκτά εφόδια για να αντιμετωπίζει δυσκολίες χωρίς επιστροφή στην εξάρτηση.</p>
-            <h4>Συμπέρασμα</h4>
-            <p>Η θεραπεία απεξάρτησης με έμφαση στην ψυχοκοινωνική προσέγγιση αποτελεί το θεμέλιο για μια ζωή με νόημα. Η εξατομικευμένη υποστήριξη, η ενίσχυση των διαπροσωπικών σχέσεων και η ανάπτυξη νέων δεξιοτήτων συνθέτουν μια νέα προοπτική ζωής, απαλλαγμένη από τα δεσμά της εξάρτησης. Επενδύοντας στην ψυχοκοινωνική φροντίδα, επενδύουμε ουσιαστικά στην υγεία, την αξιοπρέπεια και το μέλλον κάθε ανθρώπου.</p>
-            <p class="closing">Μην διστάσετε να απευθυνθείτε στα δημόσια Θεραπευτικά Προγράμματα και να λάβετε όλη τη φροντίδα που έχετε ανάγκη. Η ψυχική και σωματική υγεία είναι προτεραιότητα.</p>
-          </div>
-          <div data-lang-en>
-            <h4>What is addiction treatment</h4>
-            <p>Addiction treatment is a multidimensional process aimed at ending the use of addictive substances or behaviors, as well as restoring the person's physical, mental and social health. The modern approach recognizes that addiction is not only a medical problem, but is often linked to psychological, social and environmental factors, requiring a holistic response.</p>
-            <h4>The psychosocial approach at the core of recovery</h4>
-            <p>The psychosocial approach focuses on addressing the psychological and social factors associated with addiction. Its primary goal is to help the person understand the deeper causes of addiction, strengthen coping skills and build up self-esteem and a sense of control over their life.</p>
-            <h4>Key elements of the psychosocial approach</h4>
-            <ul>
-              <li><b>Group therapy:</b> Provides a safe environment for sharing experiences, mutual support and developing communication and cooperation skills. It strengthens a sense of belonging and reduces social stigma.</li>
-              <li><b>Individual psychotherapy:</b> Aims to explore the personal causes of addiction, strengthen defense mechanisms and develop new strategies for managing stress and emotions.</li>
-              <li><b>Family counseling:</b> Strengthens the family's involvement and understanding, shaping a supportive environment for the person.</li>
-              <li><b>Education and reintegration:</b> Helps in acquiring new knowledge and skills that facilitate social and professional reintegration.</li>
-            </ul>
-            <h4>Long-term maintenance of abstinence</h4>
-            <p>The psychosocial approach focuses not only on ending use, but also on preventing relapse. It strengthens resilience and the management of stress and challenges, while promoting autonomy and quality of life. By creating a supportive network, the person gains the tools to face difficulties without returning to addiction.</p>
-            <h4>Conclusion</h4>
-            <p>Addiction treatment with an emphasis on the psychosocial approach is the foundation for a meaningful life. Individualized support, the strengthening of interpersonal relationships and the development of new skills together create a new outlook on life, free from the bonds of addiction. By investing in psychosocial care, we invest meaningfully in the health, dignity and future of every person.</p>
-            <p class="closing">Do not hesitate to turn to the public Therapeutic Programs and receive all the care you need. Mental and physical health is a priority.</p>
-          </div>
-        </div></div>
-      </div>
-
-      <!-- 5 Family -->
-      <div class="acc-item">
-        <div class="acc-head">
-          <span class="acc-idx">06</span>
-          <div class="acc-title">
-            <h3 data-lang-el>Οικογενειακή Θεραπεία</h3><h3 data-lang-en>Family Therapy</h3>
-            <p data-lang-el>Ενότητα, κατανόηση και υποστήριξη μεταξύ των μελών</p>
-            <p data-lang-en>Unity, understanding and support among members</p>
-          </div>
-          <span class="acc-toggle"></span>
-        </div>
-        <div class="acc-body"><div class="acc-inner">
-          <div data-lang-el>
-            <h4>Τι είναι η Θεραπεία Οικογένειας;</h4>
-            <p>Η θεραπεία οικογένειας αποτελεί μια εξειδικευμένη μορφή ψυχοθεραπείας που απευθύνεται σε ολόκληρη την οικογένεια ή σε μέλη της που αντιμετωπίζουν δυσκολίες στις σχέσεις, στην επικοινωνία ή σε σοβαρά γεγονότα που επηρεάζουν τη δυναμική του οικογενειακού συστήματος. Στόχος της θεραπείας είναι να ενισχύσει τη συνοχή, την κατανόηση και την υποστήριξη μεταξύ των μελών, δημιουργώντας ένα περιβάλλον αποδοχής και ασφάλειας.</p>
-            <h4>Σε ποιους απευθύνεται;</h4>
-            <p>Η θεραπεία οικογένειας ενδείκνυται για οικογένειες που αντιμετωπίζουν:</p>
-            <ul>
-              <li>Συχνές συγκρούσεις, εντάσεις ή παρεξηγήσεις</li>
-              <li>Δυσκολίες επικοινωνίας ή μοτίβα αποξένωσης</li>
-              <li>Μεταβατικές περιόδους (διαζύγιο, απώλεια, μετακόμιση, νέα μέλη)</li>
-              <li>Προβλήματα συμπεριφοράς παιδιών ή εφήβων</li>
-              <li>Διαχείριση ψυχικής ή σωματικής ασθένειας ενός μέλους</li>
-              <li>Εξαρτήσεις ή άλλες σοβαρές δυσκολίες</li>
-            </ul>
-            <h4>Ποια είναι τα οφέλη της θεραπείας οικογένειας;</h4>
-            <ul>
-              <li>Βελτίωση της επικοινωνίας και της συναισθηματικής κατανόησης</li>
-              <li>Ανάπτυξη λειτουργικών τρόπων επίλυσης συγκρούσεων</li>
-              <li>Ενίσχυση της εμπιστοσύνης και της αλληλοϋποστήριξης</li>
-              <li>Ενδυνάμωση ατομικών και συλλογικών δεξιοτήτων αντιμετώπισης</li>
-              <li>Καλλιέργεια θετικού κλίματος και συνοχής στην οικογένεια</li>
-            </ul>
-            <h4>Πώς λειτουργεί η θεραπεία οικογένειας;</h4>
-            <p>Η θεραπεία πραγματοποιείται σε ομαδικές συνεδρίες με όλη την οικογένεια ή με επιμέρους μέλη, ανάλογα με τις ανάγκες. Ο θεραπευτής λειτουργεί ως ουδέτερος διαμεσολαβητής, βοηθώντας τους συμμετέχοντες να εκφράσουν ελεύθερα τα συναισθήματα και τις σκέψεις τους, να αναγνωρίσουν τα πρότυπα συμπεριφοράς που εμποδίζουν την αρμονία και να αναπτύξουν νέους, πιο λειτουργικούς τρόπους επικοινωνίας και συνεργασίας.</p>
-            <h4>Γιατί να επιλέξετε τη θεραπεία οικογένειας;</h4>
-            <p>Η οικογένεια αποτελεί το θεμέλιο της προσωπικής ανάπτυξης και ευεξίας. Μέσα από τη θεραπεία οικογένειας, δίνεται η δυνατότητα να αντιμετωπιστούν οι δυσκολίες με ενότητα και κατανόηση, να ενδυναμωθούν οι οικογενειακοί δεσμοί και να δημιουργηθούν υγιείς και ουσιαστικές σχέσεις που αντέχουν στο χρόνο.</p>
-            <h4>Επικοινωνήστε μαζί μου</h4>
-            <p class="closing">Αν η οικογένειά σας αντιμετωπίζει προκλήσεις ή αν θέλετε να βελτιώσετε τη μεταξύ σας σύνδεση, μη διστάσετε να επικοινωνήσετε. Είμαι εδώ για να σας στηρίξω σε κάθε βήμα προς μια πιο αρμονική οικογενειακή ζωή.</p>
-          </div>
-          <div data-lang-en>
-            <h4>What is Family Therapy?</h4>
-            <p>Family therapy is a specialized form of psychotherapy addressed to the whole family, or to members of it facing difficulties in relationships, communication, or serious events affecting the dynamics of the family system. The goal of therapy is to strengthen cohesion, understanding and support among members, creating an environment of acceptance and safety.</p>
-            <h4>Who is it for?</h4>
-            <p>Family therapy is indicated for families dealing with:</p>
-            <ul>
-              <li>Frequent conflicts, tensions or misunderstandings</li>
-              <li>Communication difficulties or patterns of estrangement</li>
-              <li>Transitional periods (divorce, loss, relocation, new members)</li>
-              <li>Behavioral issues in children or adolescents</li>
-              <li>Managing the mental or physical illness of a member</li>
-              <li>Addictions or other serious difficulties</li>
-            </ul>
-            <h4>What are the benefits of family therapy?</h4>
-            <ul>
-              <li>Improved communication and emotional understanding</li>
-              <li>Development of functional ways to resolve conflicts</li>
-              <li>Strengthened trust and mutual support</li>
-              <li>Empowerment of individual and collective coping skills</li>
-              <li>Cultivation of a positive climate and cohesion within the family</li>
-            </ul>
-            <h4>How does family therapy work?</h4>
-            <p>Therapy takes place in group sessions with the whole family or with individual members, depending on needs. The therapist acts as a neutral mediator, helping participants freely express their feelings and thoughts, recognize the behavior patterns that hinder harmony, and develop new, more functional ways of communicating and cooperating.</p>
-            <h4>Why choose family therapy?</h4>
-            <p>The family is the foundation of personal growth and well-being. Through family therapy, difficulties can be addressed with unity and understanding, family bonds can be strengthened, and healthy, meaningful relationships that endure over time can be created.</p>
-            <h4>Get in touch with me</h4>
-            <p class="closing">If your family is facing challenges, or if you would like to improve the connection between you, do not hesitate to reach out. I am here to support you at every step toward a more harmonious family life.</p>
-          </div>
-        </div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPACE -->
 <section id="space" class="pad">
   <div class="wrap">
     <div class="sec-head center reveal" style="max-width:640px">
@@ -916,6 +600,7 @@
       <h2><span data-lang-el>Ένα περιβάλλον ασφάλειας</span><span data-lang-en>A space of safety</span></h2>
       <p><span data-lang-el>Ζεστό, διακριτικό και ήρεμο — σχεδιασμένο ώστε να αισθάνεστε άνετα από το πρώτο λεπτό.</span><span data-lang-en>Warm, discreet and calm — designed so you feel at ease from the first moment.</span></p>
     </div>
+    
     <div class="space-grid">
       <div class="space-img reveal-l lb-trigger" data-src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4412.JPG">
         <img src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4412.JPG" alt="Ο χώρος του ιατρείου">
@@ -923,7 +608,14 @@
       <div class="space-img reveal-r lb-trigger" data-src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4411.JPG">
         <img src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4411.JPG" alt="Καθιστικό ιατρείου">
       </div>
+      <div class="space-img reveal-l lb-trigger" data-src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4409.JPG">
+        <img src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4409.JPG" alt="Πινακίδα ιατρείου">
+      </div>
+      <div class="space-img reveal-r lb-trigger" data-src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4410.JPG">
+        <img src="https://raw.githubusercontent.com/agelmet/SIZOPOULOU/9f70fbda712446eb08d8dee296abffb50a6f9245/IMG_4410.JPG" alt="Επαγγελματική ταυτότητα">
+      </div>
     </div>
+    
     <div class="space-note reveal">
       <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       <span><span data-lang-el>Κωνσταντινουπόλεως 50, Τ.Κ. 546 41, Θεσσαλονίκη — με δυνατότητα διαδικτυακών (online) συνεδριών.</span><span data-lang-en>50 Konstantinoupoleos St., 546 41, Thessaloniki — with online sessions also available.</span></span>
@@ -931,7 +623,6 @@
   </div>
 </section>
 
-<!-- APPROACH / VALUES -->
 <section class="pad">
   <div class="wrap">
     <div class="sec-head center reveal">
@@ -958,7 +649,6 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
 <section id="reviews" class="pad">
   <div class="wrap">
     <div class="sec-head center reveal">
@@ -966,54 +656,67 @@
       <h2><span data-lang-el>Λόγια εμπιστοσύνης</span><span data-lang-en>Words of trust</span></h2>
       <p><span data-lang-el>Εμπειρίες ανθρώπων που βρήκαν στήριξη και ισορροπία.</span><span data-lang-en>Experiences of people who found support and balance.</span></p>
     </div>
+    
     <div class="rev-grid">
       <div class="rev reveal d1">
         <div class="quote">”</div>
         <div class="stars">★★★★★</div>
-        <p data-lang-el>Ένιωσα από την πρώτη συνεδρία ότι βρίσκομαι σε ασφαλή χέρια. Με βοήθησε να καταλάβω πράγματα για τον εαυτό μου που για χρόνια αγνοούσα.</p>
-        <p data-lang-en>From the very first session I felt I was in safe hands. She helped me understand things about myself I had overlooked for years.</p>
-        <div class="who"><div class="av">Μ</div><div><b data-lang-el>Μαρία Κ.</b><b data-lang-en>Maria K.</b><span data-lang-el>Ατομική θεραπεία</span><span data-lang-en>Individual therapy</span></div></div>
+        <p data-lang-el>Μια εξαιρετική εμπειρία στο ταξίδι της αυτοβελτίωσης, κατά τη διάρκεια της προσπάθειάς μου να εντοπίσω τα τραύματα του παρελθόντος. Φώτισε επανειλημμένως σημεία που τόσα χρόνια ήταν μπροστά μου, αλλά δεν έβλεπα. Η λήξη των συνεδριών ήλθε ως πρόταση από την ίδια... Δώρα μου σ' ευχαριστώ.</p>
+        <p data-lang-en>An exceptional experience on the journey of self-improvement... She repeatedly illuminated things that were right in front of me for years, but I couldn't see. Thank you, Dora.</p>
+        <div class="who"><div class="av">Β</div><div><b data-lang-el>Βασιλική Κ</b><b data-lang-en>Vasiliki K.</b><span data-lang-el>a year ago</span><span data-lang-en>a year ago</span></div></div>
       </div>
+      
       <div class="rev reveal d2">
         <div class="quote">”</div>
         <div class="stars">★★★★★</div>
-        <p data-lang-el>Η EMDR άλλαξε τον τρόπο που βιώνω αναμνήσεις που με βάραιναν. Επαγγελματισμός και πραγματική ανθρωπιά σε κάθε βήμα.</p>
-        <p data-lang-en>EMDR changed the way I experience memories that weighed on me. Professionalism and real warmth at every step.</p>
-        <div class="who"><div class="av">Γ</div><div><b data-lang-el>Γιώργος Π.</b><b data-lang-en>George P.</b><span data-lang-el>Θεραπεία EMDR</span><span data-lang-en>EMDR therapy</span></div></div>
+        <p data-lang-el>Η Δώρα δεν είναι απλά μία έμπειρη ψυχολόγος, τραυματοθεραπεύτρια και όλα αυτά που πολύ εύκολα, μπορείτε να διαβάσετε στο βιογραφικό της. Αλλά για εμένα, είναι ο συνοδοιπόρος μου, σε ενα υπέροχο ταξίδι αυτογνωσίας, που χωρίς την Δώρα δεν θα είχα βρεθεί. Δώρα, είσαι ένας υπέροχος άνθρωπος.</p>
+        <p data-lang-en>Dora is not just an experienced psychologist and trauma therapist... but for me, she is my companion on a wonderful journey of self-discovery. Dora, you are a wonderful person.</p>
+        <div class="who"><div class="av">M</div><div><b data-lang-el>Maria Bln</b><b data-lang-en>Maria Bln</b><span data-lang-el>a year ago</span><span data-lang-en>a year ago</span></div></div>
       </div>
+      
       <div class="rev reveal d3">
         <div class="quote">”</div>
         <div class="stars">★★★★★</div>
-        <p data-lang-el>Ως οικογένεια μάθαμε ξανά να επικοινωνούμε. Μας καθοδήγησε με ηρεμία και χωρίς κρίση, σεβόμενη τον καθένα μας.</p>
-        <p data-lang-en>As a family we learned to communicate again. She guided us calmly and without judgment, respecting each of us.</p>
-        <div class="who"><div class="av">Ε</div><div><b data-lang-el>Ελένη & Δ.</b><b data-lang-en>Eleni & D.</b><span data-lang-el>Οικογενειακή θεραπεία</span><span data-lang-en>Family therapy</span></div></div>
+        <p data-lang-el>Η εμπειρία μου με την Δώρα ήταν πραγματικά μοναδική και εξαιρετικά θετική. Από την πρώτη μας συνάντηση, ένιωσα αμέσως άνετα και ασφαλής, κάτι που θεωρώ πολύ σημαντικό για την αποτελεσματική θεραπεία. Την συνιστώ ανεπιφύλακτα σε όποιον αναζητά έναν έμπειρο και υποστηρικτικό ψυχολόγο.</p>
+        <p data-lang-en>My experience with Dora was truly unique and exceptionally positive. From our first meeting, I immediately felt comfortable and safe. I highly recommend her to anyone looking for an experienced psychologist.</p>
+        <div class="who"><div class="av">C</div><div><b data-lang-el>Chrisi Giannakoudaki</b><b data-lang-en>Chrisi Giannakoudaki</b><span data-lang-el>2 years ago</span><span data-lang-en>2 years ago</span></div></div>
       </div>
+      
       <div class="rev reveal d1">
         <div class="quote">”</div>
         <div class="stars">★★★★★</div>
-        <p data-lang-el>Η εμπειρία και η γνώση της φαίνονται σε κάθε συνάντηση. Ένιωσα ότι με καταλαβαίνει πραγματικά και ποτέ δεν με βιάστηκε.</p>
-        <p data-lang-en>Her experience and knowledge show in every meeting. I felt truly understood and was never rushed.</p>
-        <div class="who"><div class="av">Α</div><div><b data-lang-el>Αναστασία Β.</b><b data-lang-en>Anastasia V.</b><span data-lang-el>Διαχείριση άγχους</span><span data-lang-en>Anxiety management</span></div></div>
+        <p data-lang-el>Η Δώρα με κέρδισε σαν επαγγελματίας με τις γνώσεις και την άψογη κατάρτιση που έχει στην τραυματοθεραπεία και σε όσα άλλα άπειρα εργαλεία έχει κατακτήσει με την εμπειρία της. Πολύ γρήγορα ένιωσα ασφάλεια και εμπιστοσύνη στη θεραπευτική μας συνεργασία.</p>
+        <p data-lang-en>Dora won me over as a professional with her knowledge and impeccable training in trauma therapy. I quickly felt safety and trust in our therapeutic collaboration.</p>
+        <div class="who"><div class="av">v</div><div><b data-lang-el>vancocteau</b><b data-lang-en>vancocteau</b><span data-lang-el>2 years ago</span><span data-lang-en>2 years ago</span></div></div>
       </div>
+      
       <div class="rev reveal d2">
         <div class="quote">”</div>
         <div class="stars">★★★★★</div>
-        <p data-lang-el>Οι online συνεδρίες ήταν εξίσου ουσιαστικές. Παρόλο που βρίσκομαι εκτός Θεσσαλονίκης, ένιωσα πλήρη στήριξη.</p>
-        <p data-lang-en>The online sessions were just as meaningful. Even though I live outside Thessaloniki, I felt fully supported.</p>
-        <div class="who"><div class="av">Κ</div><div><b data-lang-el>Κωνσταντίνος Λ.</b><b data-lang-en>Konstantinos L.</b><span data-lang-el>Online συνεδρίες</span><span data-lang-en>Online sessions</span></div></div>
+        <p data-lang-el>Η κα. Σιζοπούλου είναι ικανότατη στην επιστήμη της και σαν άνθρωπος εμπνέει εμπιστοσύνη. Με έχει καθοδηγήσει σωστά, με υπομονη και κατανοηση.</p>
+        <p data-lang-en>Ms. Sizopoulou is highly capable in her science and as a person inspires trust. She has guided me correctly, with patience and understanding.</p>
+        <div class="who"><div class="av">E</div><div><b data-lang-el>Evangelia Eleftheriadou</b><b data-lang-en>Evangelia E.</b><span data-lang-el>a year ago</span><span data-lang-en>a year ago</span></div></div>
       </div>
+      
       <div class="rev reveal d3">
         <div class="quote">”</div>
         <div class="stars">★★★★★</div>
-        <p data-lang-el>Μου έδωσε εργαλεία που χρησιμοποιώ μέχρι σήμερα. Βρήκα ξανά την ισορροπία και την αυτοπεποίθησή μου.</p>
-        <p data-lang-en>She gave me tools I still use today. I found my balance and my confidence again.</p>
-        <div class="who"><div class="av">Σ</div><div><b data-lang-el>Σοφία Τ.</b><b data-lang-en>Sofia T.</b><span data-lang-el>Διαταραχές διάθεσης</span><span data-lang-en>Mood disorders</span></div></div>
+        <p data-lang-el>Η κ.Δώρα είναι μια ιδιαίτερα καταρτισμένη ψυχολόγος. Προσεγγίζει τον θεραπευόμενο με εν συναίσθηση και με μια αμεσότητα που σε κάνει να νιώθεις άνετα από την πρώτη στιγμή. Ήταν η υποστηρικτική συνοδοιπόρος μου σε όλο αυτό το ψυχοθεραπευτικό ταξίδι.</p>
+        <p data-lang-en>Ms. Dora is a highly qualified psychologist. She approaches you with empathy and an immediacy that makes you feel comfortable from the very first moment.</p>
+        <div class="who"><div class="av">A</div><div><b data-lang-el>Asimenia Kanaridou</b><b data-lang-en>Asimenia K.</b><span data-lang-el>a year ago</span><span data-lang-en>a year ago</span></div></div>
       </div>
     </div>
+    
+    <div style="text-align: center; margin-top: 50px;" class="reveal">
+      <a href="https://www.google.com/search?client=safari&hs=Ann&sa=X&sca_esv=63f38fc62ff74e48&rls=en&biw=1728&bih=994&sxsrf=APpeQnssO2xdxshSKRFlTLtunA_HZ7UUOQ:1782299496536&q=%CE%98%CE%B5%CE%BF%CE%B4%CF%8E%CF%81%CE%B1+%28%CE%94%CF%8E%CF%81%CE%B1%29+%CE%A3%CE%B9%CE%B6%CE%BF%CF%80%CE%BF%CF%8D%CE%BB%CE%BF%CF%85,+%CE%A8%CF%85%CF%87%CE%BF%CE%BB%CF%8C%CE%B3%CE%BF%CF%82+MSc,+EMDR+Europe+Practitioner+,+%CE%A3%CF%85%CF%83%CF%84%CE%B7%CE%BC%CE%B9%CE%BA%CE%AE+%CE%A8%CF%85%CF%87%CE%BF%CE%B8%CE%B5%CF%81%CE%B1%CF%80%CE%B5%CF%8D%CF%84%CF%81%CE%B9%CE%B1+Reviews&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxtDAxNDU1tLC0NDeyMDMwNbIwNtvAyPiKcQ7juRnntp7bf27L-b7zjec2KmicmwJhaSqcW3xu57lt5_afbwDi3nO7gWSrjsK5Fedbz7cDdew-33NuM1CsScE3OFlHwdXXJUjBtbQovyBVIaAoMbkksyQzPy-1SAGoZTFQS_P5lnPbz-0BGrnr3DqEKTvObQXZBrRj6_ne8y1A9k6gK4JSyzJTy4sXsQ5u9wEAdee8iVsBAAA&rldimm=18415518997286052836&tbm=lcl&hl=en-GR&ved=2ahUKEwjo-v6C35-VAxVTQfEDHe7NKnYQ9fQKegQISxAG#lkt=LocalPoiReviews" target="_blank" rel="noopener" class="btn-ghost">
+        <span data-lang-el>Περισσότερες Κριτικές Google</span>
+        <span data-lang-en>Read more reviews on Google</span>
+      </a>
+    </div>
+
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="pad">
   <svg class="puzzle-bg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
     <defs><pattern id="pz" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -1079,7 +782,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-top">
@@ -1095,7 +797,7 @@
         <h4><span data-lang-el>Πλοήγηση</span><span data-lang-en>Navigation</span></h4>
         <a href="#about"><span data-lang-el>Προφίλ</span><span data-lang-en>About</span></a>
         <a href="#services"><span data-lang-el>Υπηρεσίες</span><span data-lang-en>Services</span></a>
-        <a href="#detail"><span data-lang-el>Αναλυτικά</span><span data-lang-en>In Depth</span></a>
+        <a href="services.html"><span data-lang-el>Αναλυτικά</span><span data-lang-en>In Depth</span></a>
         <a href="#space"><span data-lang-el>Ο Χώρος</span><span data-lang-en>The Space</span></a>
         <a href="#contact"><span data-lang-el>Επικοινωνία</span><span data-lang-en>Contact</span></a>
       </div>
@@ -1109,12 +811,11 @@
     </div>
     <div class="foot-bot">
       <span>© <span id="year"></span> Δώρα Σιζοπούλου · <span data-lang-el>Με επιφύλαξη παντός δικαιώματος.</span><span data-lang-en>All rights reserved.</span></span>
-      <span><span data-lang-el>Σχεδιασμός &amp; ανάπτυξη από</span><span data-lang-en>Designed &amp; developed by</span> <a href="https://www.advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
+      <span><span data-lang-el>Σχεδιασμός & ανάπτυξη από</span><span data-lang-en>Designed & developed by</span> <a href="https://www.advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
     </div>
   </div>
 </footer>
 
-<!-- LIGHTBOX -->
 <div class="lb" id="lightbox">
   <button class="lb-close" id="lbClose" aria-label="Κλείσιμο"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Προηγούμενο"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -1169,43 +870,6 @@
   document.getElementById('mmClose').addEventListener('click',closeMenu);
   document.querySelectorAll('.mm-link').forEach(function(a){a.addEventListener('click',closeMenu);});
 
-  // ---- Accordion ----
-  var items=document.querySelectorAll('.acc-item');
-  items.forEach(function(item){
-    item.querySelector('.acc-head').addEventListener('click',function(){
-      var open=item.classList.contains('open');
-      items.forEach(function(it){it.classList.remove('open');it.querySelector('.acc-body').style.maxHeight=null;});
-      if(!open){
-        item.classList.add('open');
-        var body=item.querySelector('.acc-body');
-        body.style.maxHeight=body.scrollHeight+'px';
-      }
-    });
-  });
-  // recalc on lang change (content height differs)
-  document.querySelectorAll('.lang-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      setTimeout(function(){
-        var open=document.querySelector('.acc-item.open');
-        if(open){var b=open.querySelector('.acc-body');b.style.maxHeight=b.scrollHeight+'px';}
-      },60);
-    });
-  });
-  // service card -> open accordion
-  document.querySelectorAll('.svc[data-acc]').forEach(function(card){
-    card.addEventListener('click',function(e){
-      e.preventDefault();
-      var idx=parseInt(card.dataset.acc,10);
-      var target=items[idx];
-      document.getElementById('detail').scrollIntoView({behavior:'smooth'});
-      setTimeout(function(){
-        items.forEach(function(it){it.classList.remove('open');it.querySelector('.acc-body').style.maxHeight=null;});
-        target.classList.add('open');
-        var b=target.querySelector('.acc-body');b.style.maxHeight=b.scrollHeight+'px';
-      },700);
-    });
-  });
-
   // ---- Reveal on scroll ----
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(en){
@@ -1243,7 +907,7 @@
     if(e.key==='ArrowLeft')show(cur-1);
   });
 
-  // ---- Smooth anchor for non-accordion links ----
+  // ---- Smooth anchor links ----
   document.querySelectorAll('a[href^="#"]:not([data-acc])').forEach(function(a){
     a.addEventListener('click',function(e){
       var id=a.getAttribute('href');
@@ -1252,5 +916,6 @@
   });
 })();
 </script>
+
 </body>
 </html>
