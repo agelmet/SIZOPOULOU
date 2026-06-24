@@ -272,8 +272,9 @@
   .rev-grid{columns:3;column-gap:22px}
   .rev{background:rgba(255,255,255,.65);border:1px solid var(--line);border-radius:var(--r);padding:28px 28px;transition:transform .5s,box-shadow .5s,background .5s;position:relative;break-inside:avoid;margin-bottom:22px;display:inline-block;width:100%}
   .rev:hover{transform:translateY(-6px);box-shadow:var(--shadow);background:#fff}
-  .rev-text{color:var(--ink-soft);font-weight:300;font-size:.96rem;line-height:1.65;margin:14px 0 8px;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;transition:none}
-  .rev.expanded .rev-text{-webkit-line-clamp:unset;display:block}
+  .rev-text{color:var(--ink-soft);font-weight:300;font-size:.96rem;line-height:1.65;margin:14px 0 8px;overflow:hidden}
+  body.lang-el .rev-text[data-lang-el],body.lang-en .rev-text[data-lang-en]{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:6}
+  body.lang-el .rev.expanded .rev-text[data-lang-el],body.lang-en .rev.expanded .rev-text[data-lang-en]{-webkit-line-clamp:unset;display:block!important}
   .rev .stars{color:var(--gold);letter-spacing:3px;font-size:.95rem}
   .rev-toggle{background:none;border:0;cursor:pointer;font-family:var(--sans);font-size:.8rem;font-weight:600;color:var(--teal);padding:0;margin-bottom:18px;display:none}
   .rev.clamped .rev-toggle{display:inline-block}
@@ -402,23 +403,11 @@
     *{animation:none!important;transition:none!important}
     .reveal,.reveal-l,.reveal-r,.reveal-s{opacity:1;transform:none}
   }
-
-  /* ===== Services sub-page (Merged) ===== */
-  .page-hero{position:relative;padding:150px 0 70px;background:linear-gradient(180deg,var(--paper),var(--paper-2));overflow:hidden}
-  .page-hero::before{content:"";position:absolute;top:-140px;right:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,var(--blue-soft),transparent 70%);opacity:.4}
-  .page-hero .wrap{position:relative;z-index:1}
-  .page-hero .crumbs{font-size:.78rem;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:22px;display:flex;gap:10px;align-items:center}
-  .page-hero .crumbs a{color:var(--teal);font-weight:600}
-  .page-hero .crumbs span{opacity:.5}
-  .page-hero h1{font-size:clamp(2.4rem,5vw,4rem);color:var(--ink);margin-bottom:18px}
-  .page-hero h1 em{font-style:italic;color:var(--teal);font-weight:500}
-  .page-hero p{font-size:1.08rem;color:var(--ink-soft);font-weight:300;max-width:560px}
-  #detail.detail-page{background:var(--paper)}
-  #detail.detail-page .sec-head.center{display:none}
 </style>
 </head>
 <body class="lang-el no-scroll">
 
+<!-- LOADER -->
 <div id="loader">
   <svg class="loader-puzzle" viewBox="0 0 100 100">
     <path d="M30 26h14c0-4 2-7 6-7s6 3 6 7h14v14c4 0 7 2 7 6s-3 6-7 6v14H56c0 4-2 7-6 7s-6-3-6-7H30V52c-4 0-7-2-7-6s3-6 7-6V26z" fill="#2a6a82"/>
@@ -428,6 +417,7 @@
 
 <div class="progress" id="progress"></div>
 
+<!-- HEADER -->
 <header id="header">
   <div class="nav">
     <a href="#home" class="brand" aria-label="Δώρα Σιζοπούλου — αρχική">
@@ -477,6 +467,7 @@
   </div>
 </header>
 
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Κλείσιμο">
     <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -496,6 +487,7 @@
   </div>
 </div>
 
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"><div class="blob a"></div><div class="blob b"></div></div>
   <div class="wrap">
@@ -539,6 +531,7 @@
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="pad">
   <div class="wrap">
     <div class="about-grid">
@@ -555,12 +548,14 @@
         <span class="eyebrow"><span data-lang-el>Γνωριμία</span><span data-lang-en>Get to know me</span></span>
         <h2 class="sec-head" style="margin-bottom:24px"><span data-lang-el>Θεοδώρα Σιζοπούλου</span><span data-lang-en>Theodora Sizopoulou</span></h2>
 
+        <!-- EL -->
         <div data-lang-el>
           <p class="lead">Με βαθιά ανθρωποκεντρική προσέγγιση και πολυετή εμπειρία στην ψυχοθεραπεία και την απεξάρτηση.</p>
           <p>Η Θεοδώρα Σιζοπούλου είναι Ψυχολόγος, απόφοιτη του Τμήματος Ψυχολογίας του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης, με μεταπτυχιακό τίτλο στην Κλινική και Κοινωνική Ψυχολογία των Εξαρτήσεων από το ίδιο Πανεπιστήμιο. Έχει εκπαιδευτεί και πιστοποιηθεί στη Συστημική – Οικογενειακή Θεραπεία και στη θεραπεία του ψυχικού τραύματος. Είναι ευρωπαϊκά πιστοποιημένη θεραπεύτρια EMDR (EMDR Europe Accredited Practitioner) και επόπτρια (EMDR Europe Consultant in training) σύμφωνα με τα κριτήρια της EMDR Europe. Επίσης διαθέτει επιπλέον εξειδίκευση στη δυναμική ομάδων, στη διαχείριση πένθους και στη θεραπεία των εξαρτήσεων. Παρακολουθεί τις επιστημονικές εξελίξεις στο χώρο της Ψυχολογίας και συμμετέχει σε επιστημονικά συνέδρια με ανακοινώσεις όπως και σε ερευνητικά προγράμματα. Δεν σταματά να εκπαιδεύεται με στόχο την καλύτερη ποιότητα υπηρεσιών σε όσους την εμπιστεύονται.</p>
           <p>Εργάστηκε για 24 χρόνια στο ΚΕΘΕΑ ΙΘΑΚΗ, 22 από τα οποία σε θέσεις ευθύνης, όπως στο Συμβουλευτικό Κέντρο, το Κέντρο Οικογενειακής Υποστήριξης, τη Μονάδα Διπλής Διάγνωσης και τη Θεραπευτική Κοινότητα. Παράλληλα, διετέλεσε επόπτρια πρακτικής άσκησης φοιτητών Ψυχολογίας του Αριστοτελείου Πανεπιστημίου από το 2002, συμβάλλοντας ενεργά στη διαμόρφωση νέων επαγγελματιών ψυχικής υγείας.</p>
           <p>Με πολυετή εμπειρία στον χώρο της ψυχοθεραπείας και της απεξάρτησης, καθώς και βαθιά ανθρωποκεντρική προσέγγιση, η κ. Σιζοπούλου προσφέρει ένα ασφαλές και υποστηρικτικό θεραπευτικό πλαίσιο για άτομα, ζεύγη και οικογένειες, εστιάζοντας στην ενδυνάμωση, την ψυχική ανθεκτικότητα και την αποκατάσταση της εσωτερικής ισορροπίας και ευημερίας.</p>
         </div>
+        <!-- EN -->
         <div data-lang-en>
           <p class="lead">A deeply human-centered approach, grounded in many years of psychotherapy and addiction recovery practice.</p>
           <p>Theodora Sizopoulou is a Psychologist, a graduate of the Department of Psychology at the Aristotle University of Thessaloniki, holding a Master's degree in the Clinical and Social Psychology of Addictions from the same University. She is trained and certified in Systemic – Family Therapy and in the treatment of psychological trauma. She is a European-accredited EMDR therapist (EMDR Europe Accredited Practitioner) and a consultant (EMDR Europe Consultant in training) in line with EMDR Europe criteria. She also holds further specialization in group dynamics, grief management and addiction treatment. She follows scientific developments in the field of Psychology and takes part in scientific conferences with presentations, as well as in research programs. She never stops training, aiming for the highest quality of care for those who trust her.</p>
@@ -606,6 +601,7 @@
   </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="pad">
   <div class="wrap">
     <div class="sec-head center reveal">
@@ -614,7 +610,7 @@
       <p><span data-lang-el>Εξατομικευμένη φροντίδα, προσαρμοσμένη στις ανάγκες κάθε ανθρώπου, ζεύγους και οικογένειας.</span><span data-lang-en>Personalized care, tailored to the needs of each person, couple and family.</span></p>
     </div>
     <div class="svc-grid">
-      <a href="#s0" class="svc reveal d1">
+      <a href="#detail" class="svc reveal d1" data-acc="0">
         <div class="svc-top">
           <span class="svc-num">01</span>
           <div class="svc-ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="6.5"/><path d="M5 24c4.5-8 12.5-12 19-12s14.5 4 19 12c-4.5 8-12.5 12-19 12S9.5 32 5 24Z"/><path d="M3 13.5l3 2.5M45 13.5l-3 2.5M3 34.5l3-2.5M45 34.5l-3-2.5"/></svg></div>
@@ -624,7 +620,7 @@
         <p data-lang-en>A modern, evidence-based method for trauma, phobias and anxiety through bilateral stimulation.</p>
         <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a href="#s1" class="svc reveal d2">
+      <a href="#detail" class="svc reveal d2" data-acc="1">
         <div class="svc-top">
           <span class="svc-num">02</span>
           <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M24 41C13 34 6 27 6 18.5 6 12.7 10.7 8 16.5 8c3.2 0 6 1.5 7.5 3.8C25.5 9.5 28.3 8 31.5 8 37.3 8 42 12.7 42 18.5 42 27 35 34 24 41Z"/><path d="M14 22h6l2.5-5 3 9 2.5-4h6"/></svg></div>
@@ -634,7 +630,7 @@
         <p data-lang-en>Individualized treatment of post-traumatic stress, focused on processing the trauma.</p>
         <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a href="#s2" class="svc reveal d3">
+      <a href="#detail" class="svc reveal d3" data-acc="2">
         <div class="svc-top">
           <span class="svc-num">03</span>
           <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M8 30c0-9 7-16 16-16s16 7 16 16"/><path d="M8 30a4 4 0 0 0 8 0M32 30a4 4 0 0 0 8 0"/><path d="M24 8v6M14 11l2 4M34 11l-2 4"/></svg></div>
@@ -644,7 +640,7 @@
         <p data-lang-en>Support for depression, bipolar disorder and related emotional conditions.</p>
         <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a href="#s3" class="svc reveal d1">
+      <a href="#detail" class="svc reveal d1" data-acc="3">
         <div class="svc-top">
           <span class="svc-num">04</span>
           <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M24 6C15 6 8 12.5 8 21c0 5 2.5 8 2.5 12 0 3.5 3 6 7 6"/><path d="M24 6c9 0 16 6.5 16 15 0 5-2.5 8-2.5 12 0 3.5-3 6-7 6"/><path d="M19 39h10M20 24c0-3 2-5 4-5s4 2 4 5"/></svg></div>
@@ -654,7 +650,7 @@
         <p data-lang-en>Management of generalized anxiety, panic attacks, phobias and social anxiety.</p>
         <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a href="#s4" class="svc reveal d2">
+      <a href="#detail" class="svc reveal d2" data-acc="4">
         <div class="svc-top">
           <span class="svc-num">05</span>
           <div class="svc-ico"><svg viewBox="0 0 48 48"><path d="M24 42s14-7.5 14-19V11l-14-5-14 5v12c0 11.5 14 19 14 19Z"/><path d="M17 23l5 5 9-10"/></svg></div>
@@ -664,7 +660,7 @@
         <p data-lang-en>A holistic, psychosocial approach to ending use and restoring well-being.</p>
         <span class="svc-more"><span data-lang-el>Διαβάστε περισσότερα</span><span data-lang-en>Read more</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a href="#s5" class="svc reveal d3">
+      <a href="#detail" class="svc reveal d3" data-acc="5">
         <div class="svc-top">
           <span class="svc-num">06</span>
           <div class="svc-ico"><svg viewBox="0 0 48 48"><circle cx="16" cy="15" r="5"/><circle cx="32" cy="15" r="5"/><path d="M6 38c0-6 4.5-10 10-10s10 4 10 10M22 38c0-6 4.5-10 10-10s10 4 10 10"/></svg></div>
@@ -681,16 +677,7 @@
   </div>
 </section>
 
-<section class="page-hero">
-  <div class="wrap">
-    <div class="crumbs">
-      <a href="#home"><span data-lang-el>Αρχική</span><span data-lang-en>Home</span></a>
-      <span>/</span>
-      <em><span data-lang-el>Υπηρεσίες</span><span data-lang-en>Services</span></em>
-    </div>
-  </div>
-</section>
-
+<!-- DETAIL ACCORDION -->
 <section id="detail" class="pad">
   <div class="wrap">
     <div class="sec-head center reveal">
@@ -700,6 +687,7 @@
     </div>
 
     <div class="acc reveal">
+      <!-- 0 EMDR -->
       <div class="acc-item" id="s0">
         <div class="acc-head">
           <span class="acc-idx">01</span>
@@ -752,6 +740,7 @@
         </div></div>
       </div>
 
+      <!-- 1 PTSD -->
       <div class="acc-item" id="s1">
         <div class="acc-head">
           <span class="acc-idx">02</span>
@@ -780,6 +769,7 @@
         </div></div>
       </div>
 
+      <!-- 2 Mood -->
       <div class="acc-item" id="s2">
         <div class="acc-head">
           <span class="acc-idx">03</span>
@@ -806,6 +796,7 @@
         </div></div>
       </div>
 
+      <!-- 3 Anxiety -->
       <div class="acc-item" id="s3">
         <div class="acc-head">
           <span class="acc-idx">04</span>
@@ -834,6 +825,7 @@
         </div></div>
       </div>
 
+      <!-- 4 Addiction -->
       <div class="acc-item" id="s4">
         <div class="acc-head">
           <span class="acc-idx">05</span>
@@ -884,6 +876,7 @@
         </div></div>
       </div>
 
+      <!-- 5 Family -->
       <div class="acc-item" id="s5">
         <div class="acc-head">
           <span class="acc-idx">06</span>
@@ -957,14 +950,7 @@
   </div>
 </section>
 
-<section class="pad" style="padding-top:0">
-  <div class="wrap" style="text-align:center">
-    <a href="#contact" class="btn-primary"><span data-lang-el>Κλείστε ραντεβού</span><span data-lang-en>Book a session</span></a>
-    <a href="#home" class="btn-ghost" style="margin-left:12px"><span data-lang-el>Επιστροφή στην αρχική</span><span data-lang-en>Back to home</span></a>
-  </div>
-</section>
-
-
+<!-- SPACE -->
 <section id="space" class="pad">
   <div class="wrap">
     <div class="sec-head center reveal" style="max-width:640px">
@@ -993,6 +979,7 @@
   </div>
 </section>
 
+<!-- APPROACH / VALUES -->
 <section class="pad">
   <div class="wrap">
     <div class="sec-head center reveal">
@@ -1019,6 +1006,7 @@
   </div>
 </section>
 
+<!-- REVIEWS -->
 <section id="reviews" class="pad">
   <div class="wrap">
     <div class="sec-head center reveal">
@@ -1126,6 +1114,8 @@
   </div>
 </section>
 
+
+<!-- CONTACT -->
 <section id="contact" class="pad">
   <svg class="puzzle-bg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
     <defs><pattern id="pz" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -1191,6 +1181,7 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-top">
@@ -1220,11 +1211,12 @@
     </div>
     <div class="foot-bot">
       <span>© <span id="year"></span> Δώρα Σιζοπούλου · <span data-lang-el>Με επιφύλαξη παντός δικαιώματος.</span><span data-lang-en>All rights reserved.</span></span>
-      <span><span data-lang-el>Σχεδιασμός & ανάπτυξη από</span><span data-lang-en>Designed & developed by</span> <a href="https://www.advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
+      <span><span data-lang-el>Σχεδιασμός &amp; ανάπτυξη από</span><span data-lang-en>Designed &amp; developed by</span> <a href="https://www.advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
     </div>
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
 <div class="lb" id="lightbox">
   <button class="lb-close" id="lbClose" aria-label="Κλείσιμο"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Προηγούμενο"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -1235,13 +1227,12 @@
 <script>
 (function(){
   "use strict";
-  var yEl=document.getElementById('year'); if(yEl)yEl.textContent=new Date().getFullYear();
+  document.getElementById('year').textContent=new Date().getFullYear();
 
   // ---- Loader ----
   window.addEventListener('load',function(){
     setTimeout(function(){
-      var loader = document.getElementById('loader');
-      if(loader) loader.classList.add('done');
+      document.getElementById('loader').classList.add('done');
       document.body.classList.remove('no-scroll');
     },900);
   });
@@ -1255,7 +1246,6 @@
       b.classList.toggle('active',b.dataset.set===lang);
     });
     if(typeof checkClamp==='function'){setTimeout(checkClamp,80);}
-    if(typeof recalcOpen==='function'){setTimeout(recalcOpen,60);}
   }
   document.querySelectorAll('.lang-btn').forEach(function(btn){
     btn.addEventListener('click',function(){setLang(btn.dataset.set);});
@@ -1266,9 +1256,9 @@
   var progress=document.getElementById('progress');
   function onScroll(){
     var y=window.scrollY;
-    if(header)header.classList.toggle('scrolled',y>40);
+    header.classList.toggle('scrolled',y>40);
     var h=document.documentElement.scrollHeight-window.innerHeight;
-    if(progress)progress.style.width=(h>0?(y/h)*100:0)+'%';
+    progress.style.width=(h>0?(y/h)*100:0)+'%';
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
@@ -1276,17 +1266,55 @@
   // ---- Mobile menu ----
   var burger=document.getElementById('burger');
   var menu=document.getElementById('mobileMenu');
-  function openMenu(){if(menu)menu.classList.add('open');document.body.classList.add('no-scroll');}
-  function closeMenu(){if(menu)menu.classList.remove('open');document.body.classList.remove('no-scroll');}
-  if(burger)burger.addEventListener('click',openMenu);
-  var mmc=document.getElementById('mmClose'); if(mmc)mmc.addEventListener('click',closeMenu);
+  function openMenu(){menu.classList.add('open');document.body.classList.add('no-scroll');}
+  function closeMenu(){menu.classList.remove('open');document.body.classList.remove('no-scroll');}
+  burger.addEventListener('click',openMenu);
+  document.getElementById('mmClose').addEventListener('click',closeMenu);
   document.querySelectorAll('.mm-link').forEach(function(a){a.addEventListener('click',closeMenu);});
+
+  // ---- Accordion ----
+  var items=document.querySelectorAll('.acc-item');
+  function openItem(item){
+    item.classList.add('open');
+    var body=item.querySelector('.acc-body');
+    body.style.maxHeight=body.scrollHeight+'px';
+  }
+  function closeAll(){items.forEach(function(it){it.classList.remove('open');it.querySelector('.acc-body').style.maxHeight=null;});}
+  items.forEach(function(item){
+    item.querySelector('.acc-head').addEventListener('click',function(){
+      var open=item.classList.contains('open');
+      closeAll();
+      if(!open)openItem(item);
+    });
+  });
+  // recalc open item height on language change
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      setTimeout(function(){
+        var open=document.querySelector('.acc-item.open');
+        if(open){var b=open.querySelector('.acc-body');b.style.maxHeight=b.scrollHeight+'px';}
+      },70);
+    });
+  });
+  // service card -> scroll to detail + open matching accordion item
+  document.querySelectorAll('.svc[data-acc]').forEach(function(card){
+    card.addEventListener('click',function(e){
+      e.preventDefault();
+      var idx=parseInt(card.dataset.acc,10);
+      var target=items[idx];
+      var detail=document.getElementById('detail');
+      if(detail)detail.scrollIntoView({behavior:'smooth'});
+      setTimeout(function(){
+        closeAll();
+        if(target)openItem(target);
+      },650);
+    });
+  });
 
   // ---- Reviews: clamp detection + expand toggle ----
   function checkClamp(){
     document.querySelectorAll('.rev').forEach(function(rev){
       if(rev.classList.contains('expanded'))return;
-      var txt=rev.querySelector('.rev-text[data-lang-'+(document.body.classList.contains('lang-en')?'en':'el')+']');
       var visible=Array.prototype.filter.call(rev.querySelectorAll('.rev-text'),function(p){return p.offsetParent!==null;})[0];
       if(!visible)return;
       var clamped=visible.scrollHeight>visible.clientHeight+2;
@@ -1305,39 +1333,6 @@
   });
   window.addEventListener('load',function(){setTimeout(checkClamp,300);});
   window.addEventListener('resize',function(){clearTimeout(window.__rc);window.__rc=setTimeout(checkClamp,200);});
-
-  // ---- Accordion (Services Details) ----
-  var items=document.querySelectorAll('.acc-item');
-  function openItem(item){
-    item.classList.add('open');
-    var body=item.querySelector('.acc-body');
-    body.style.maxHeight=body.scrollHeight+'px';
-  }
-  function closeAll(){items.forEach(function(it){it.classList.remove('open');it.querySelector('.acc-body').style.maxHeight=null;});}
-  items.forEach(function(item){
-    item.querySelector('.acc-head').addEventListener('click',function(){
-      var open=item.classList.contains('open');
-      closeAll();
-      if(!open)openItem(item);
-    });
-  });
-  function recalcOpen(){
-    var open=document.querySelector('.acc-item.open');
-    if(open){var b=open.querySelector('.acc-body');b.style.maxHeight=b.scrollHeight+'px';}
-  }
-
-  // ---- Deep-link: open the item targeted by hash (#s0..#s5) ----
-  function openFromHash(){
-    var h=window.location.hash;
-    if(/^#s\d+$/.test(h)){
-      var t=document.querySelector(h);
-      if(t&&t.classList.contains('acc-item')){
-        closeAll(); openItem(t);
-        setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'});},120);
-      }
-    }
-  }
-  window.addEventListener('hashchange',openFromHash);
 
   // ---- Reveal on scroll ----
   var io=new IntersectionObserver(function(entries){
@@ -1362,31 +1357,27 @@
   var lbImg=document.getElementById('lbImg');
   var cur=0;
   function show(i){cur=(i+srcs.length)%srcs.length;lbImg.src=srcs[cur];}
-  function openLB(i){show(i);if(lb){lb.classList.add('open');document.body.classList.add('no-scroll');}}
-  function closeLB(){if(lb){lb.classList.remove('open');document.body.classList.remove('no-scroll');}}
+  function openLB(i){show(i);lb.classList.add('open');document.body.classList.add('no-scroll');}
+  function closeLB(){lb.classList.remove('open');document.body.classList.remove('no-scroll');}
   triggers.forEach(function(t,i){t.addEventListener('click',function(){openLB(i);});});
-  var lbClose=document.getElementById('lbClose'); if(lbClose)lbClose.addEventListener('click',closeLB);
-  var lbNext=document.getElementById('lbNext'); if(lbNext)lbNext.addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
-  var lbPrev=document.getElementById('lbPrev'); if(lbPrev)lbPrev.addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
-  if(lb)lb.addEventListener('click',function(e){if(e.target===lb)closeLB();});
+  document.getElementById('lbClose').addEventListener('click',closeLB);
+  document.getElementById('lbNext').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+  document.getElementById('lbPrev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLB();});
   document.addEventListener('keydown',function(e){
-    if(lb && !lb.classList.contains('open'))return;
+    if(!lb.classList.contains('open'))return;
     if(e.key==='Escape')closeLB();
     if(e.key==='ArrowRight')show(cur+1);
     if(e.key==='ArrowLeft')show(cur-1);
   });
 
-  // ---- Smooth anchor for same-page links ----
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  // ---- Smooth anchor for non-accordion links ----
+  document.querySelectorAll('a[href^="#"]:not([data-acc])').forEach(function(a){
     a.addEventListener('click',function(e){
       var id=a.getAttribute('href');
       if(id.length>1){var t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}}
     });
   });
-
-  // init
-  openFromHash();
-  window.addEventListener('load',function(){setTimeout(recalcOpen,200);});
 })();
 </script>
 </body>
