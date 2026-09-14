@@ -76,8 +76,8 @@
   header.scrolled{background:rgba(247,244,237,.82);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
   header.scrolled .nav{padding:14px 28px}
   .brand{display:flex;align-items:center;gap:13px;z-index:20}
-  .brand img.brand-mark{width:56px;height:56px;flex:none;object-fit:contain;transition:transform .5s}
-  .brand:hover img.brand-mark{transform:scale(1.06)}
+  .brand svg{width:42px;height:42px;flex:none;transition:transform .5s}
+  .brand:hover svg{transform:rotate(8deg)}
   .brand-txt{display:flex;flex-direction:column;line-height:1}
   .brand-txt b{font-family:var(--serif);font-size:1.32rem;font-weight:600;letter-spacing:.01em;color:var(--ink)}
   .brand-txt small{font-family:var(--sans);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-top:4px;font-weight:600}
@@ -327,7 +327,7 @@
   footer{background:var(--ink);color:rgba(255,255,255,.66);padding:60px 0 30px}
   .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
   .foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-  .foot-brand img.brand-mark{width:52px;height:52px;object-fit:contain;flex:none}
+  .foot-brand svg{width:40px;height:40px}
   .foot-brand b{font-family:var(--serif);font-size:1.3rem;color:#fff}
   .foot-col p{font-size:.9rem;font-weight:300;max-width:300px}
   .foot-col h4{font-family:var(--sans);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;font-weight:600}
@@ -336,6 +336,14 @@
   .foot-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding-top:26px;font-size:.82rem}
   .foot-bot a{color:var(--gold-soft);font-weight:600}
   .foot-bot a:hover{color:#fff}
+
+  /* ===== EMDR accreditation seal ===== */
+  .emdr-cred{display:flex;align-items:center;gap:28px;padding:24px 28px;margin:0 0 30px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(150deg,rgba(255,255,255,.92),rgba(247,244,237,.55));box-shadow:0 18px 40px -32px rgba(20,50,60,.5)}
+  .emdr-cred img{width:124px;height:124px;flex:none;object-fit:contain}
+  .emdr-cred .emdr-cred-txt{min-width:0}
+  .emdr-cred b{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--ink);margin-bottom:7px;line-height:1.25}
+  .emdr-cred span{display:block;font-size:.93rem;line-height:1.65;color:var(--ink-soft);font-weight:300}
+  @media(max-width:640px){.emdr-cred{flex-direction:column;text-align:center;gap:18px;padding:24px 20px}.emdr-cred img{width:108px;height:108px}}
 
   /* ===== Lightbox ===== */
   .lb{position:fixed;inset:0;background:rgba(15,28,32,.94);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;padding:30px}
@@ -445,7 +453,20 @@
 <header id="header">
   <div class="nav">
     <a class="brand" data-route="home" style="cursor:pointer" aria-label="Δώρα Σιζοπούλου — αρχική">
-      <img class="brand-mark" src="assets/emdr-europe-practitioner.png" width="560" height="560" alt="EMDR Europe Accredited Practitioner" decoding="async">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2a6a82"/><stop offset="1" stop-color="#3d8298"/>
+          </linearGradient>
+          <linearGradient id="pg2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7ab0c7"/><stop offset="1" stop-color="#a8cdda"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 8c5 0 9 4 9 9 0 2-1 4-1 5 1-1 3-2 5-2 5 0 9 4 9 9s-4 9-9 9c-2 0-4-1-5-2 0 1 1 3 1 5 0 0 0 0 0 0H50V8z" fill="url(#pg2)"/>
+        <path d="M50 8v42H22c0 0 0 0 0 0 0-2 1-4 1-5-1 1-3 2-5 2-5 0-9-4-9-9s4-9 9-9c2 0 4 1 5 2 0-1-1-3-1-5 0-5 4-9 9-9 2 0 4 1 5 2-1-1-1-3-1-5 0-5 4-9 9-9 2 0 4 1 6 2z" fill="url(#pg1)" opacity="0"/>
+        <path d="M50 50v42c-5 0-9-4-9-9 0-2 1-4 1-5-1 1-3 2-5 2-5 0-9-4-9-9s4-9 9-9c2 0 4 1 5 2 0-1-1-3-1-5 0 0 0 0 0 0h18z" fill="url(#pg1)"/>
+        <path d="M50 50h28c0 0 0 0 0 0 0 2-1 4-1 5 1-1 3-2 5-2 5 0 9 4 9 9s-4 9-9 9c-2 0-4-1-5-2 0 1 1 3 1 5 0 5-4 9-9 9-2 0-4-1-5-2 1 1 1 3 1 5 0 0 0 0 0 0H50V50z" fill="url(#pg2)"/>
+      </svg>
       <span class="brand-txt">
         <b>Δώρα Σιζοπούλου</b>
         <small data-lang-el>Ψυχολόγος · MSc</small>
@@ -982,6 +1003,13 @@
         </div>
         <div class="acc-body"><div class="acc-inner">
           <div data-lang-el>
+            <div class="emdr-cred">
+              <img src="assets/emdr-europe-practitioner.png" width="560" height="560" alt="EMDR Europe Accredited Practitioner — Πιστοποίηση EMDR Europe Association" loading="lazy" decoding="async">
+              <span class="emdr-cred-txt">
+                <b>EMDR Europe Accredited Practitioner</b>
+                <span>Η Θεοδώρα Σιζοπούλου είναι ευρωπαϊκά πιστοποιημένη θεραπεύτρια EMDR, σύμφωνα με τα κριτήρια της EMDR Europe Association.</span>
+              </span>
+            </div>
             <h4>Ολοκληρωμένη Περιγραφή της Θεραπείας EMDR</h4>
             <p>Η θεραπεία EMDR (Eye Movement Desensitization and Reprocessing – Απευαισθητοποίηση και Επανεπεξεργασία μέσω αμφίπλευρου διεστιακού ερεθισμού) αποτελεί μια πρωτοποριακή, συνθετική και επιστημονικά τεκμηριωμένη ψυχοθεραπευτική προσέγγιση για την αντιμετώπιση τραυματικών βιωμάτων, φοβιών, άγχους και άλλων ψυχολογικών δυσκολιών. Στοχεύει στην ανακούφιση της δυσφορίας που σχετίζεται με παρελθοντικά τραυματικά ή στρεσογόνα βιώματα, στην αντιμετώπιση των συμπτωμάτων που είναι αποτέλεσμα αντίξοων εμπειριών αλλά και στις ανησυχίες για το μέλλον.</p>
             <h4>Πώς λειτουργεί η θεραπεία EMDR;</h4>
@@ -1001,6 +1029,13 @@
             <p class="closing">Για περισσότερες πληροφορίες ή για να κλείσετε ένα ραντεβού, επικοινωνήστε μαζί μου. Είμαι εδώ για να σας στηρίξω στο ταξίδι προς την ψυχική ισορροπία και ευεξία.</p>
           </div>
           <div data-lang-en>
+            <div class="emdr-cred">
+              <img src="assets/emdr-europe-practitioner.png" width="560" height="560" alt="EMDR Europe Accredited Practitioner" loading="lazy" decoding="async">
+              <span class="emdr-cred-txt">
+                <b>EMDR Europe Accredited Practitioner</b>
+                <span>Theodora Sizopoulou is a European-accredited EMDR therapist, in line with the criteria of the EMDR Europe Association.</span>
+              </span>
+            </div>
             <h4>A Complete Overview of EMDR Therapy</h4>
             <p>EMDR (Eye Movement Desensitization and Reprocessing) is a pioneering, integrative and evidence-based psychotherapeutic approach for addressing traumatic experiences, phobias, anxiety and other psychological difficulties. It aims to relieve the distress linked to past traumatic or stressful experiences, to treat symptoms resulting from adverse experiences, and to ease worries about the future.</p>
             <h4>How does EMDR work?</h4>
@@ -1247,7 +1282,7 @@
     <div class="foot-top">
       <div class="foot-col">
         <div class="foot-brand">
-          <img class="brand-mark" src="assets/emdr-europe-practitioner.png" width="560" height="560" alt="EMDR Europe Accredited Practitioner" decoding="async" loading="lazy">
+          <svg viewBox="0 0 100 100"><path d="M50 8c5 0 9 4 9 9 0 2-1 4-1 5 1-1 3-2 5-2 5 0 9 4 9 9s-4 9-9 9c-2 0-4-1-5-2 0 1 1 3 1 5H50V8z" fill="#a8cdda"/><path d="M50 50v42c-5 0-9-4-9-9 0-2 1-4 1-5-1 1-3 2-5 2-5 0-9-4-9-9s4-9 9-9c2 0 4 1 5 2 0-1-1-3-1-5h18z" fill="#3d8298"/><path d="M50 50h28c0 2-1 4-1 5 1-1 3-2 5-2 5 0 9 4 9 9s-4 9-9 9c-2 0-4-1-5-2 0 1 1 3 1 5 0 5-4 9-9 9-2 0-4-1-5-2 1 1 1 3 1 5H50V50z" fill="#7ab0c7"/></svg>
           <b>Δώρα Σιζοπούλου</b>
         </div>
         <p data-lang-el>Ψυχολόγος MSc (Α.Π.Θ.) · Πιστοποιημένη θεραπεύτρια EMDR Europe. Ένα ασφαλές, ανθρωποκεντρικό πλαίσιο για άτομα, ζεύγη και οικογένειες.</p>
